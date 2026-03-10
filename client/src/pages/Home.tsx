@@ -213,8 +213,8 @@ function AnimatedNumber({ value, suffix = "" }: { value: string; suffix?: string
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"conseguiras" | "incluye">("conseguiras");
-  const [placasOcupadas] = useState(13);
-  const [totalPlazas] = useState(20);
+  const [placasOcupadas] = useState(50);
+  const [totalPlazas] = useState(200);
   const progressPct = Math.round((placasOcupadas / totalPlazas) * 100);
 
   const scrollToForm = () => {
@@ -267,7 +267,6 @@ export default function Home() {
         "Residencia fiscal vs empresa en Dubái: qué te conviene según tu situación",
         "Free Zone vs Mainland: ventajas y desventajas reales para españoles",
         "Sesiones Q&A personalizadas sobre tu caso específico",
-        "Cena de networking de alto nivel con el grupo",
       ],
       icon: <Shield className="w-5 h-5" />,
       img: IMAGES.fiscal,
@@ -358,7 +357,7 @@ export default function Home() {
                 {[
                   { icon: <Clock className="w-4 h-4" />, label: "2 días intensivos" },
                   { icon: <Users className="w-4 h-4" />, label: "+200 empresarios" },
-                  { icon: <Award className="w-4 h-4" />, label: "6 expertos" },
+                  { icon: <MapPin className="w-4 h-4" />, label: "Madrid, Abril 2026" },
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center gap-2 bg-[#111111] border border-[#C9A84C]/20 rounded-full px-4 py-2 text-sm">
                     <span className="text-[#C9A84C]">{stat.icon}</span>
@@ -400,7 +399,7 @@ export default function Home() {
                   <span>4.9/5 (27 reseñas)</span>
                 </div>
                 <span className="text-[#C9A84C]">·</span>
-                <span>Solo {totalPlazas - placasOcupadas} plazas disponibles</span>
+                <span>Quedan {totalPlazas - placasOcupadas} plazas disponibles</span>
                 <span className="text-[#C9A84C]">·</span>
                 <span>Proceso de selección</span>
               </div>
@@ -414,15 +413,15 @@ export default function Home() {
               <div className="absolute -bottom-5 -left-5 bg-[#111111] border border-[#C9A84C]/30 rounded-xl p-4 shadow-2xl hidden md:block">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2">
-                    {["C", "M", "A", "R"].map((l, i) => (
+                    {["C", "M", "A", "R", "J"].map((l, i) => (
                       <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#8B7536] flex items-center justify-center text-[#0a0a0a] text-xs font-black border-2 border-[#0a0a0a]">
                         {l}
                       </div>
                     ))}
                   </div>
                   <div>
-                    <div className="text-white text-sm font-bold">+50 empresarios</div>
-                    <div className="text-gray-400 text-xs">ya han confirmado plaza</div>
+                    <div className="text-white text-sm font-bold">+50 plazas reservadas</div>
+                    <div className="text-gray-400 text-xs">¡Quedan {totalPlazas - placasOcupadas} disponibles!</div>
                   </div>
                   <div className="ml-2 text-right">
                     <div className="flex">
@@ -449,7 +448,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-end gap-2">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
-                <span className="text-[#C9A84C] text-sm font-bold">Solo {totalPlazas - placasOcupadas} plazas disponibles</span>
+                <span className="text-[#C9A84C] text-sm font-bold">Quedan {totalPlazas - placasOcupadas} plazas disponibles</span>
               </div>
               <button onClick={scrollToForm} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
                 RESERVAR AHORA
@@ -597,7 +596,7 @@ export default function Home() {
             {/* Bono 1 */}
             <div className="card-dark p-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-4 py-1.5 rounded-bl-xl tracking-wider">
-                SOLO PRIMEROS 20
+                ACCESO VIP INCLUIDO
               </div>
               <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center mb-4">
                 <Star className="w-5 h-5 text-[#C9A84C]" />
@@ -620,7 +619,7 @@ export default function Home() {
 
               <div className="bg-[#1a1a1a] rounded-full p-3 border border-[#C9A84C]/20">
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Plazas ocupadas:</span>
+                  <span>Plazas reservadas:</span>
                   <span className="text-[#C9A84C] font-bold">{progressPct}%</span>
                 </div>
                 <div className="h-2 bg-[#222] rounded-full overflow-hidden">
@@ -631,7 +630,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between text-xs mt-2">
                   <span className="text-gray-400">{placasOcupadas} de {totalPlazas} plazas</span>
-                  <span className="text-[#C9A84C] font-bold">¡Solo quedan {totalPlazas - placasOcupadas}!</span>
+                  <span className="text-[#C9A84C] font-bold">¡Quedan {totalPlazas - placasOcupadas}!</span>
                 </div>
               </div>
 
@@ -683,7 +682,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               Historias De Éxito Reales
             </h2>
-            <p className="text-gray-400">Más de 50 empresarios hispanohablantes ya han transformado su patrimonio con Nexo</p>
+            <p className="text-gray-400">Más de 50 empresarios hispanohablantes ya han transformado su visión fiscal y patrimonial con Nexo</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
@@ -832,7 +831,7 @@ export default function Home() {
                 ASEGURA TU PLAZA POR 97€
               </button>
               <div className="flex items-center justify-center gap-4 mt-3 text-xs text-gray-400">
-                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Solo {totalPlazas} plazas disponibles</span>
+                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> {totalPlazas - placasOcupadas} plazas disponibles</span>
                 <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Evento verificado</span>
               </div>
             </div>
@@ -969,7 +968,7 @@ export default function Home() {
                 QUIERO MI PLAZA POR 97€
               </button>
             </div>
-            <p className="text-gray-500 text-xs mt-3">Solo {totalPlazas} plazas disponibles · Proceso de selección</p>
+            <p className="text-gray-500 text-xs mt-3">{totalPlazas - placasOcupadas} plazas disponibles · Proceso de selección</p>
           </div>
         </div>
       </section>
@@ -1223,8 +1222,8 @@ export default function Home() {
                 <div className="text-[#C9A84C] text-xs font-bold tracking-widest">26-27 ABRIL 2026</div>
               </div>
             </div>
-            <div className="text-center text-gray-500 text-xs">
-              <p>Solo {totalPlazas - placasOcupadas} plazas disponibles · Hotel 5★ · Networking exclusivo</p>
+              <div className="text-center text-gray-500 text-xs">
+              <p>Quedan {totalPlazas - placasOcupadas} plazas disponibles · Hotel 5★ · Networking exclusivo</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
             <button onClick={scrollToForm} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
