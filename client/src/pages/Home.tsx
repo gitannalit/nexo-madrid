@@ -1,9 +1,9 @@
-/**
- * NEXO MADRID — Landing Page
+/*
+ * NEXO DUBÁI - MADRID — Landing Page
  * Design: Neo-Luxury Premium Dark (Negro profundo + Dorado cálido)
- * Fonts: Playfair Display (H1/H2) + Montserrat (UI/body)
- * Colors: #0a0a0a background, #C9A84C/#D4AF37 gold accents, #FFFFFF text
- * Event: Último fin de semana de abril 2026 (25-27 abril) — Madrid
+ * Fonts: Geist (misma tipografía que evento-nexodubai.com) — weight 900 headings, -0.03em letter-spacing
+ * Colors: #0a0a0a background, #C9A84C/#D4AF37 gold accents, #F5F5F5 text
+ * Event: Sábado 26 y Domingo 27 de Abril 2026 — Madrid
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -24,6 +24,7 @@ import {
   Clock,
   MapPin,
   Calendar,
+  Heart,
 } from "lucide-react";
 
 // ─── Image URLs ────────────────────────────────────────────────────────────────
@@ -57,7 +58,7 @@ function Ticker() {
     <div className="bg-[#C9A84C] text-[#0a0a0a] py-2 overflow-hidden">
       <div className="ticker-track">
         {doubled.map((item, i) => (
-          <span key={i} className="inline-block px-8 font-bold text-sm tracking-wider whitespace-nowrap" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <span key={i} className="inline-block px-8 font-bold text-sm tracking-wider whitespace-nowrap">
             {item}
           </span>
         ))}
@@ -98,7 +99,7 @@ function HeroCarousel() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-4">
-            <p className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full inline-block" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <p className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
               {slide.caption}
             </p>
           </div>
@@ -110,7 +111,7 @@ function HeroCarousel() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === current ? "bg-[#C9A84C] w-5" : "bg-white/40"}`}
+            className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-[#C9A84C] w-5" : "bg-white/40 w-2"}`}
           />
         ))}
       </div>
@@ -125,13 +126,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="border border-[#C9A84C]/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C9A84C]/40">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-5 text-left bg-[#111111] hover:bg-[#161616] transition-colors"
+        className="w-full flex items-start justify-between p-5 text-left bg-[#111111] hover:bg-[#161616] transition-colors gap-4"
       >
-        <span className="font-semibold text-white pr-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>{q}</span>
-        {open ? <ChevronUp className="text-[#C9A84C] shrink-0 w-5 h-5" /> : <ChevronDown className="text-[#C9A84C] shrink-0 w-5 h-5" />}
+        <span className="font-semibold text-white text-sm leading-snug">{q}</span>
+        {open ? <ChevronUp className="text-[#C9A84C] shrink-0 w-5 h-5 mt-0.5" /> : <ChevronDown className="text-[#C9A84C] shrink-0 w-5 h-5 mt-0.5" />}
       </button>
       {open && (
-        <div className="p-5 bg-[#0f0f0f] text-gray-300 text-sm leading-relaxed border-t border-[#C9A84C]/10" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <div className="px-5 pb-5 pt-3 bg-[#0f0f0f] text-gray-300 text-sm leading-relaxed border-t border-[#C9A84C]/10">
           {a}
         </div>
       )}
@@ -141,7 +142,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 // ─── Countdown Timer ─────────────────────────────────────────────────────────
 function CountdownTimer() {
-  const eventDate = new Date('2026-04-25T09:00:00');
+  const eventDate = new Date('2026-04-26T09:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -162,17 +163,17 @@ function CountdownTimer() {
   }, []);
 
   return (
-    <div className="flex items-center gap-3 justify-center">
+    <div className="flex items-center gap-2 justify-center">
       {[
         { val: timeLeft.days, label: 'DÍAS' },
         { val: timeLeft.hours, label: 'HORAS' },
         { val: timeLeft.minutes, label: 'MIN' },
         { val: timeLeft.seconds, label: 'SEG' },
       ].map((unit, i) => (
-        <div key={i} className="flex items-center gap-3">
+        <div key={i} className="flex items-center gap-2">
           <div className="text-center">
-            <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-lg px-3 py-2 min-w-[56px]">
-              <span className="text-[#C9A84C] font-black text-2xl block" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-lg px-3 py-2 min-w-[52px]">
+              <span className="text-[#C9A84C] font-black text-2xl block tracking-tight">
                 {String(unit.val).padStart(2, '0')}
               </span>
             </div>
@@ -209,26 +210,6 @@ function AnimatedNumber({ value, suffix = "" }: { value: string; suffix?: string
   );
 }
 
-// ─── CTA Button ────────────────────────────────────────────────────────────────
-function CTAButton({ text, size = "md", className = "" }: { text: string; size?: "sm" | "md" | "lg"; className?: string }) {
-  const sizeClasses = {
-    sm: "px-6 py-3 text-sm",
-    md: "px-8 py-4 text-base",
-    lg: "px-10 py-5 text-lg",
-  };
-
-  return (
-    <button
-      className={`btn-gold-outline rounded-lg font-black tracking-widest inline-flex items-center gap-2 ${sizeClasses[size]} ${className}`}
-      style={{ fontFamily: 'Montserrat, sans-serif' }}
-    >
-      <Zap className="w-4 h-4" />
-      {text}
-      <ArrowRight className="w-4 h-4" />
-    </button>
-  );
-}
-
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"conseguiras" | "incluye">("conseguiras");
@@ -251,7 +232,7 @@ export default function Home() {
     },
     {
       q: "¿Es legal pagar menos impuestos con Dubái?",
-      a: "Completamente legal, siempre que se haga correctamente. En el evento verás exactamente qué se puede hacer y qué NO se puede hacer, con ejemplos reales de empresarios españoles que ya lo están implementando. Trabajarás con asesores legales y fiscales especializados que te mostrarán las estructuras legales que mejor se adaptan a tu situación particular. La planificación fiscal internacional es perfectamente legal cuando se hace con transparencia y siguiendo las normativas vigentes."
+      a: "Completamente legal, siempre que se haga correctamente. En el evento verás exactamente qué se puede hacer y qué NO se puede hacer, con ejemplos reales de empresarios españoles que ya lo están implementando. Trabajarás con asesores legales y fiscales especializados que te mostrarán las estructuras legales que mejor se adaptan a tu situación particular."
     },
     {
       q: "¿Necesito ser millonario para participar?",
@@ -259,43 +240,34 @@ export default function Home() {
     },
     {
       q: "¿Puedo invertir en Dubái sin ser residente?",
-      a: "Sí. Existen fórmulas específicas para no residentes que explicamos en detalle durante el evento, con sus pros y contras. Los bancos y promotoras en Dubái están acostumbrados a trabajar con inversores internacionales y hay opciones de inversión disponibles. Durante el evento tendrás sesiones con expertos financieros que te mostrarán las alternativas específicas para tu caso."
+      a: "Sí. Existen fórmulas específicas para no residentes que explicamos en detalle durante el evento, con sus pros y contras. Los bancos y promotoras en Dubái están acostumbrados a trabajar con inversores internacionales y hay opciones de inversión disponibles para tu caso."
     },
     {
       q: "¿Por qué hay proceso de selección?",
-      a: "Porque queremos que el grupo sea homogéneo, que puedas aportar y recibir valor, y que el evento tenga sentido financiero y personal para ti. No buscamos llenar plazas; buscamos crear resultados y relaciones a largo plazo. Trabajamos con un grupo reducido para garantizar atención personalizada y networking de calidad. Este proceso asegura que todos los asistentes estén en un nivel similar."
+      a: "Porque queremos que el grupo sea homogéneo, que puedas aportar y recibir valor, y que el evento tenga sentido financiero y personal para ti. No buscamos llenar plazas; buscamos crear resultados y relaciones a largo plazo. Trabajamos con un grupo reducido para garantizar atención personalizada y networking de calidad."
     },
     {
       q: "¿Cuáles son las fechas exactas?",
-      a: "El evento se celebra el último fin de semana de abril 2026: viernes 25, sábado 26 y domingo 27 de abril. Tres días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible ya que las plazas son muy limitadas y el proceso de selección puede tomar hasta 48 horas."
+      a: "El evento se celebra el último fin de semana de abril 2026: sábado 26 y domingo 27 de abril. Dos días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible ya que las plazas son muy limitadas."
     },
     {
       q: "¿Qué diferencia hay con una formación online?",
-      a: "La diferencia es abismal. Una formación online te da información genérica. Este evento te pone frente a fiscalistas reales, inversores activos y empresarios que ya operan desde Dubái. Tienes acceso directo a deals de inversión que no están disponibles públicamente, consultoría personalizada para tu caso específico, y una red de contactos que puede transformar tu negocio. El ROI de este evento comienza desde el primer día."
+      a: "La diferencia es abismal. Una formación online te da información genérica. Este evento te pone frente a fiscalistas reales, inversores activos y empresarios que ya operan desde Dubái. Tienes acceso directo a deals de inversión que no están disponibles públicamente, consultoría personalizada para tu caso específico, y una red de contactos que puede transformar tu negocio."
     },
   ];
 
+  // 2 días: sábado y domingo
   const agendaData = [
-    {
-      dia: "Viernes 25",
-      titulo: "Fundamentos y Mentalidad del Inversor Global",
-      items: [
-        "Bienvenida exclusiva y networking inicial con los +200 asistentes",
-        "Mindset del inversor internacional: de autoempleado a dueño de patrimonio",
-        "Cómo estructurar tu plan fiscal a 3-5 años desde España",
-        "Cena de networking de alto nivel con el grupo",
-      ],
-      icon: <Globe className="w-5 h-5" />,
-      img: IMAGES.corporate,
-    },
     {
       dia: "Sábado 26",
       titulo: "Optimización Fiscal y Estructura Internacional",
       items: [
+        "Bienvenida exclusiva y networking inicial con los +200 asistentes",
         "Sesión magistral con expertos fiscales: cómo pagar 40-50% menos impuestos legalmente",
         "Residencia fiscal vs empresa en Dubái: qué te conviene según tu situación",
         "Free Zone vs Mainland: ventajas y desventajas reales para españoles",
         "Sesiones Q&A personalizadas sobre tu caso específico",
+        "Cena de networking de alto nivel con el grupo",
       ],
       icon: <Shield className="w-5 h-5" />,
       img: IMAGES.fiscal,
@@ -307,6 +279,7 @@ export default function Home() {
         "Presentación de oportunidades inmobiliarias verificadas con ROI 8-12% anual",
         "Estrategias de diversificación patrimonial y apalancamiento inteligente",
         "Sesiones 1:1 con consultores especializados en tu caso",
+        "Networking con inversores activos en el mercado de Dubái",
         "Tu plan de acción personalizado para los próximos 90 días",
       ],
       icon: <TrendingUp className="w-5 h-5" />,
@@ -315,7 +288,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
 
       {/* ── Ticker ── */}
       <Ticker />
@@ -323,28 +296,25 @@ export default function Home() {
       {/* ── Sticky Nav ── */}
       <nav className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#C9A84C]/10 py-3">
         <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {/* Logo NEXO */}
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-full bg-[#C9A84C] flex items-center justify-center">
-                <span className="text-[#0a0a0a] font-black text-xs">N</span>
-              </div>
-              <div>
-                <div className="font-black text-white text-lg leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>NEXO</div>
-                <div className="text-[#C9A84C] text-[10px] font-bold tracking-widest leading-none">MADRID</div>
-              </div>
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-full bg-[#C9A84C] flex items-center justify-center shrink-0">
+              <span className="text-[#0a0a0a] font-black text-xs">N</span>
+            </div>
+            <div>
+              <div className="font-black text-white text-base leading-none tracking-tight">NEXO DUBÁI</div>
+              <div className="text-[#C9A84C] text-[9px] font-bold tracking-widest leading-none mt-0.5">MADRID</div>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-2 text-xs text-gray-400">
             <Calendar className="w-3.5 h-3.5 text-[#C9A84C]" />
-            <span>25-27 Abril 2026</span>
+            <span>26-27 Abril 2026</span>
             <span className="mx-2 text-[#C9A84C]">·</span>
             <MapPin className="w-3.5 h-3.5 text-[#C9A84C]" />
             <span>Madrid</span>
           </div>
           <button
             onClick={scrollToForm}
-            className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider"
+            className="btn-gold rounded-lg px-4 py-2.5 text-xs font-black tracking-wider"
           >
             SOLICITAR PLAZA
           </button>
@@ -352,36 +322,31 @@ export default function Home() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex items-center py-16 overflow-hidden">
-        {/* Background subtle */}
+      <section className="relative min-h-[88vh] flex items-center py-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-5"
           style={{ background: 'radial-gradient(ellipse at top right, #C9A84C 0%, transparent 70%)' }} />
 
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Left: Text */}
-            <div className="space-y-6">
-              {/* Badge */}
+            <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2">
                 <Award className="w-4 h-4 text-[#C9A84C]" />
                 <span className="text-[#C9A84C] text-xs font-bold tracking-wider">EVENTO VALIDADO POR +50 EMPRESARIOS EXITOSOS</span>
               </div>
 
-              {/* Date */}
               <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-semibold">
                 <Calendar className="w-4 h-4" />
-                <span>25, 26 Y 27 DE ABRIL DE 2026 · MADRID</span>
+                <span>26 Y 27 DE ABRIL DE 2026 · MADRID</span>
               </div>
 
-              {/* Headline */}
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight">
                 El evento más exclusivo para{" "}
                 <span className="text-gradient-gold">optimizar tu fiscalidad</span>{" "}
                 e invertir en Dubái
               </h1>
 
-              {/* Subheadline */}
               <p className="text-gray-300 text-lg leading-relaxed">
                 Un fin de semana intensivo donde aprendes a{" "}
                 <span className="text-[#C9A84C] font-semibold">ahorrar 40-50% en impuestos</span>,{" "}
@@ -389,10 +354,9 @@ export default function Home() {
                 <span className="text-[#C9A84C] font-semibold">hacer networking con +200 empresarios</span> de alto nivel.
               </p>
 
-              {/* Stats */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 {[
-                  { icon: <Clock className="w-4 h-4" />, label: "3 días intensivos" },
+                  { icon: <Clock className="w-4 h-4" />, label: "2 días intensivos" },
                   { icon: <Users className="w-4 h-4" />, label: "+200 empresarios" },
                   { icon: <Award className="w-4 h-4" />, label: "6 expertos" },
                 ].map((stat, i) => (
@@ -403,8 +367,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-1">
                 <button
                   onClick={scrollToForm}
                   className="btn-gold-outline rounded-xl px-8 py-5 text-base font-black tracking-widest inline-flex items-center justify-center gap-2"
@@ -415,8 +378,7 @@ export default function Home() {
                 </button>
               </div>
 
-              {/* Trust signals */}
-              <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pt-1">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400">
                 <div className="flex items-center gap-1.5">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 text-[#C9A84C] fill-[#C9A84C]" />)}
@@ -435,7 +397,6 @@ export default function Home() {
               <div className="aspect-video w-full">
                 <HeroCarousel />
               </div>
-              {/* Social proof card */}
               <div className="absolute -bottom-5 -left-5 bg-[#111111] border border-[#C9A84C]/30 rounded-xl p-4 shadow-2xl hidden md:block">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2">
@@ -463,12 +424,12 @@ export default function Home() {
       </section>
 
       {/* ── TRUST BAR / COUNTDOWN ── */}
-      <section className="py-10 bg-[#111111] border-y border-[#C9A84C]/10">
+      <section className="py-8 bg-[#111111] border-y border-[#C9A84C]/10">
         <div className="container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <div className="text-[#C9A84C] text-xs font-bold tracking-widest mb-1">CUENTA ATRÁS PARA EL EVENTO</div>
-              <div className="text-white text-sm font-semibold">25 de Abril 2026 · Madrid</div>
+              <div className="text-white text-sm font-semibold">26 de Abril 2026 · Madrid</div>
             </div>
             <CountdownTimer />
             <div className="flex flex-col items-center md:items-end gap-2">
@@ -485,17 +446,17 @@ export default function Home() {
       </section>
 
       {/* ── BENEFICIOS ── */}
-      <section className="py-20 bg-[#0f0f0f]">
+      <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               Todo Lo Que Vas a Conseguir
             </h2>
-            <p className="text-gray-400 text-lg">Un fin de semana intensivo, estrategia real y acceso a oportunidades exclusivas</p>
+            <p className="text-gray-400 text-base">Un fin de semana intensivo, estrategia real y acceso a oportunidades exclusivas</p>
           </div>
 
           {/* Tabs */}
-          <div className="flex justify-center gap-3 mb-10">
+          <div className="flex justify-center gap-3 mb-8">
             {[
               { id: "conseguiras", label: "Lo Que Conseguirás" },
               { id: "incluye", label: "Qué Incluye El Evento" },
@@ -503,7 +464,7 @@ export default function Home() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
                   activeTab === tab.id
                     ? "bg-[#C9A84C] text-[#0a0a0a]"
                     : "border border-[#C9A84C]/30 text-gray-300 hover:border-[#C9A84C]/60"
@@ -515,7 +476,7 @@ export default function Home() {
           </div>
 
           {activeTab === "conseguiras" && (
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-5">
               {[
                 {
                   badge: "EXCLUSIVO",
@@ -543,19 +504,19 @@ export default function Home() {
                 },
               ].map((card, i) => (
                 <div key={i} className="card-dark overflow-hidden group">
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
                     <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
                     <div className="absolute top-3 right-3 bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">
                       {card.badge}
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-5">
                     <div className="flex items-center gap-2 text-[#C9A84C] mb-2">
                       {card.icon}
                       <span className="text-xs font-bold tracking-wider">{card.title}</span>
                     </div>
-                    <div className="text-3xl font-black text-[#C9A84C] mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    <div className="text-3xl font-black text-[#C9A84C] mb-2 tracking-tight">
                       {card.metric}
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">{card.desc}</p>
@@ -566,7 +527,7 @@ export default function Home() {
           )}
 
           {activeTab === "incluye" && (
-            <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto">
               {[
                 "Sesiones magistrales con expertos fiscales internacionales",
                 "Consultoría 1:1 personalizada sobre tu situación fiscal",
@@ -589,7 +550,7 @@ export default function Home() {
             </div>
           )}
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8">
             <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
               <Zap className="w-4 h-4" />
               SOLICITAR PLAZA AHORA
@@ -600,28 +561,28 @@ export default function Home() {
       </section>
 
       {/* ── BONOS EXCLUSIVOS ── */}
-      <section className="py-20 bg-[#0a0a0a]">
+      <section className="py-14 bg-[#0a0a0a]">
         <div className="container">
-          <div className="flex items-center justify-center gap-2 mb-12">
+          <div className="flex items-center justify-center gap-2 mb-8">
             <div className="h-px flex-1 bg-[#C9A84C]/20" />
-            <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2 text-[#C9A84C] text-sm font-bold tracking-wider">
+            <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2 text-[#C9A84C] text-sm font-bold tracking-wider whitespace-nowrap">
               🎁 BONOS EXCLUSIVOS INCLUIDOS
             </div>
             <div className="h-px flex-1 bg-[#C9A84C]/20" />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             {/* Bono 1 */}
-            <div className="card-dark p-7 relative overflow-hidden">
+            <div className="card-dark p-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-4 py-1.5 rounded-bl-xl tracking-wider">
                 SOLO PRIMEROS 20
               </div>
-              <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-[#C9A84C]" />
+              <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center mb-4">
+                <Star className="w-5 h-5 text-[#C9A84C]" />
               </div>
-              <h3 className="text-xl font-black text-white mb-2">Acceso EXCLUSIVO al Grupo VIP de Inversión</h3>
+              <h3 className="text-xl font-black text-white mb-2 tracking-tight">Acceso EXCLUSIVO al Grupo VIP de Inversión</h3>
               <p className="text-[#C9A84C] font-bold text-sm mb-4">Valor: €15.000/año — <span className="text-white">GRATIS para ti</span></p>
-              <ul className="space-y-2.5 mb-6">
+              <ul className="space-y-2 mb-5">
                 {[
                   "Deals inmobiliarios verificados con ROI del 8-12% anual",
                   "Oportunidades de inversión privadas no disponibles públicamente",
@@ -635,7 +596,6 @@ export default function Home() {
                 ))}
               </ul>
 
-              {/* Progress bar */}
               <div className="bg-[#1a1a1a] rounded-full p-3 border border-[#C9A84C]/20">
                 <div className="flex justify-between text-xs text-gray-400 mb-2">
                   <span>Plazas ocupadas:</span>
@@ -660,20 +620,20 @@ export default function Home() {
             </div>
 
             {/* Bono 2 */}
-            <div className="card-dark p-7">
+            <div className="card-dark p-6">
               <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1.5 mb-4">
                 <Award className="w-3.5 h-3.5 text-[#C9A84C]" />
                 <span className="text-[#C9A84C] text-xs font-bold tracking-wider">BONO ADICIONAL</span>
               </div>
-              <h3 className="text-xl font-black text-white mb-2">Consultoría Personalizada Post-Evento</h3>
+              <h3 className="text-xl font-black text-white mb-2 tracking-tight">Consultoría Personalizada Post-Evento</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
                 Sesión privada exclusiva donde diseñamos tu estrategia personalizada de inversión y estructura fiscal internacional. Implementamos todo lo aprendido directamente en tu caso real y te damos la hoja de ruta exacta para tu éxito.
               </p>
-              <div className="bg-[#1a1a1a] rounded-xl p-4 border border-[#C9A84C]/20 mb-6">
-                <div className="text-2xl font-black text-[#C9A84C]">Valor: €2.500</div>
+              <div className="bg-[#1a1a1a] rounded-xl p-4 border border-[#C9A84C]/20 mb-5">
+                <div className="text-2xl font-black text-[#C9A84C] tracking-tight">Valor: €2.500</div>
                 <div className="text-white font-bold">GRATIS para asistentes</div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {[
                   "Análisis de tu situación fiscal actual",
                   "Estructura óptima para tu caso específico",
@@ -686,7 +646,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={scrollToForm} className="mt-6 w-full border border-[#C9A84C]/40 text-[#C9A84C] rounded-xl py-3.5 text-sm font-bold tracking-wide hover:bg-[#C9A84C]/10 transition-colors flex items-center justify-center gap-2">
+              <button onClick={scrollToForm} className="mt-5 w-full border border-[#C9A84C]/40 text-[#C9A84C] rounded-xl py-3.5 text-sm font-bold tracking-wide hover:bg-[#C9A84C]/10 transition-colors flex items-center justify-center gap-2">
                 Reservar Mi Plaza →
               </button>
             </div>
@@ -695,22 +655,22 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIOS ── */}
-      <section className="py-20 bg-[#0f0f0f]">
+      <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               Historias De Éxito Reales
             </h2>
             <p className="text-gray-400">Más de 50 empresarios hispanohablantes ya han transformado su patrimonio con Nexo</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {[
               {
                 name: "Carlos Mendoza",
                 role: "CEO de Software Company",
                 origin: "España → Dubái",
-                quote: "Vine pensando que Dubái no era para mí. Después de 5 días entendí cómo estructurar mi empresa para pagar 0% en impuestos legalmente. Pasé de pagar 47% en España a tener una estructura 100% legal que me ahorra más de 80.000€ al año.",
+                quote: "Vine pensando que Dubái no era para mí. Después del evento entendí cómo estructurar mi empresa para pagar 0% en impuestos legalmente. Pasé de pagar 47% en España a tener una estructura 100% legal que me ahorra más de 80.000€ al año.",
                 stats: [
                   { label: "Ahorro fiscal anual", value: "+80.000€" },
                   { label: "Impuestos antes", value: "47%" },
@@ -740,41 +700,40 @@ export default function Home() {
                 ],
               },
             ].map((t, i) => (
-              <div key={i} className="card-dark p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1 text-xs text-[#C9A84C] font-bold flex items-center gap-1.5">
-                    <Check className="w-3 h-3" />
-                    Verificado — Cliente Real
-                  </div>
+              <div key={i} className="card-dark p-6 flex flex-col">
+                <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/20 rounded-full px-3 py-1 mb-4 self-start">
+                  <Check className="w-3 h-3 text-[#C9A84C]" />
+                  <span className="text-[#C9A84C] text-xs font-bold">Verificado — Cliente Real</span>
                 </div>
                 <div className="flex mb-3">
                   {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 text-[#C9A84C] fill-[#C9A84C]" />)}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-5 italic">"{t.quote}"</p>
-                <div className="grid grid-cols-3 gap-2 mb-5">
+                <p className="text-gray-300 text-sm leading-relaxed mb-5 flex-1">"{t.quote}"</p>
+                <div className="grid grid-cols-3 gap-2 mb-4">
                   {t.stats.map((s, j) => (
-                    <div key={j} className="bg-[#1a1a1a] rounded-lg p-2.5 text-center">
-                      <div className="text-[#C9A84C] font-black text-sm">{s.value}</div>
-                      <div className="text-gray-500 text-xs mt-0.5">{s.label}</div>
+                    <div key={j} className="bg-[#1a1a1a] rounded-lg p-2 text-center">
+                      <div className="text-[#C9A84C] font-black text-base tracking-tight">{s.value}</div>
+                      <div className="text-gray-500 text-[10px] leading-tight mt-0.5">{s.label}</div>
                     </div>
                   ))}
                 </div>
-                <div>
-                  <div className="font-bold text-white text-sm">{t.name}</div>
-                  <div className="text-gray-400 text-xs">{t.role}</div>
-                  <div className="text-[#C9A84C] text-xs font-semibold mt-0.5">{t.origin}</div>
+                <div className="flex items-center gap-3 pt-3 border-t border-[#C9A84C]/10">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#8B7536] flex items-center justify-center text-[#0a0a0a] font-black text-sm">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <div className="text-white font-bold text-sm">{t.name}</div>
+                    <div className="text-gray-500 text-xs">{t.role} · {t.origin}</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 text-[#C9A84C] fill-[#C9A84C]" />)}
-              </div>
-              <span className="text-white font-bold">4.9/5</span>
-              <span className="text-gray-400 text-sm">(basado en +50 experiencias reales)</span>
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-[#C9A84C] fill-[#C9A84C]" />)}
+              <span className="text-gray-400 text-sm ml-1">4.9/5 (basado en +50 experiencias reales)</span>
             </div>
             <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
               <Zap className="w-4 h-4" />
@@ -785,71 +744,61 @@ export default function Home() {
       </section>
 
       {/* ── MÉTRICAS ── */}
-      <section className="py-20 bg-[#0a0a0a]">
+      <section className="py-14 bg-[#0a0a0a]">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Multiplica Tu Patrimonio{" "}
-              <span className="text-gradient-gold">Con Estrategias Probadas</span>
-            </h2>
-            <p className="text-gray-400">Ahorro fiscal inmediato, acceso a inversiones exclusivas y networking de élite. El ROI comienza desde el día uno.</p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <div className="card-dark p-8 mb-6">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 mb-4">
-                    <Check className="w-4 h-4 text-[#C9A84C]" />
-                    <span className="text-[#C9A84C] text-xs font-bold">VERIFICADO</span>
-                  </div>
-                  <h3 className="text-2xl font-black text-white mb-2">Tu inversión se multiplica con estrategias elite</h3>
-                  <div className="space-y-2 mt-4">
-                    {[
-                      "Ahorro fiscal inmediato de hasta 40-50%",
-                      "Acceso a deals con ROI del 8-12% anual",
-                      "Red de inversores elite valorada en €15K/año",
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 text-gray-300 text-sm">
-                        <Check className="w-4 h-4 text-[#C9A84C] shrink-0" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
+          <div className="max-w-4xl mx-auto card-dark p-8">
+            <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 mb-4">
+                  <Check className="w-4 h-4 text-[#C9A84C]" />
+                  <span className="text-[#C9A84C] text-xs font-bold">VERIFICADO</span>
                 </div>
-                <div className="flex items-center justify-center">
-                  <div className="relative w-40 h-40">
-                    <div className="absolute inset-0 rounded-full border-4 border-[#C9A84C]/20" />
-                    <div className="absolute inset-2 rounded-full border-4 border-[#C9A84C]/40" />
-                    <div className="absolute inset-4 rounded-full bg-[#C9A84C]/10 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-4xl font-black text-[#C9A84C]">
-                          <AnimatedNumber value="10" suffix="X" />
-                        </div>
-                        <div className="text-xs text-gray-400 font-bold tracking-wider">ROI POTENCIAL</div>
+                <h3 className="text-2xl font-black text-white mb-3 tracking-tight">Tu inversión se multiplica con estrategias elite</h3>
+                <div className="space-y-2">
+                  {[
+                    "Ahorro fiscal inmediato de hasta 40-50%",
+                    "Acceso a deals con ROI del 8-12% anual",
+                    "Red de inversores elite valorada en €15K/año",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-gray-300 text-sm">
+                      <Check className="w-4 h-4 text-[#C9A84C] shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <div className="relative w-36 h-36">
+                  <div className="absolute inset-0 rounded-full border-4 border-[#C9A84C]/20" />
+                  <div className="absolute inset-2 rounded-full border-4 border-[#C9A84C]/40" />
+                  <div className="absolute inset-4 rounded-full bg-[#C9A84C]/10 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-4xl font-black text-[#C9A84C] tracking-tight">
+                        <AnimatedNumber value="10" suffix="X" />
                       </div>
+                      <div className="text-xs text-gray-400 font-bold tracking-wider">ROI POTENCIAL</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "40-50%", label: "Ahorro Fiscal", desc: "Reducción de carga tributaria" },
                 { value: "8-12%", label: "ROI Inmobiliario", desc: "Rentabilidad anual verificada" },
               ].map((metric, i) => (
-                <div key={i} className="card-dark p-6 text-center">
-                  <div className="text-5xl font-black text-[#C9A84C] mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                <div key={i} className="bg-[#1a1a1a] rounded-xl p-5 text-center border border-[#C9A84C]/10">
+                  <div className="text-4xl font-black text-[#C9A84C] mb-1 tracking-tight">
                     <AnimatedNumber value={metric.value} />
                   </div>
-                  <div className="text-white font-bold text-lg mb-1">{metric.label}</div>
-                  <div className="text-gray-400 text-sm">{metric.desc}</div>
+                  <div className="text-white font-bold text-base mb-1">{metric.label}</div>
+                  <div className="text-gray-400 text-xs">{metric.desc}</div>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-8">
+            <div className="text-center mt-6">
               <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 ASEGURA TU PLAZA AHORA
@@ -864,61 +813,62 @@ export default function Home() {
       </section>
 
       {/* ── PROCESO DE ADMISIÓN ── */}
-      <section className="py-20 bg-[#0f0f0f]">
+      <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 text-[#C9A84C] text-xs font-bold tracking-wider">
               SOLO {totalPlazas} PLAZAS DISPONIBLES
             </div>
           </div>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Proceso de Admisión Exclusivo
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
+              Proceso de Admisión
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Este no es un evento para todos. Es una red privada de empresarios e inversores de alto nivel. No aceptamos a todos — rechazamos aproximadamente el 60% de las solicitudes.
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
+              Simple y directo. Solicita tu plaza, confirmamos por email y nos vemos en Madrid.
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-4 mb-10">
+          <div className="max-w-3xl mx-auto space-y-3 mb-8">
             {[
               {
                 num: "01",
-                title: "Solicitud Inicial",
-                desc: "Completa el formulario de pre-calificación con tu perfil empresarial, situación fiscal actual y objetivos patrimoniales.",
+                title: "Solicitud Online",
+                desc: "Completa el formulario con tu perfil empresarial y objetivos. Solo tarda 2 minutos.",
+                icon: <Globe className="w-5 h-5 text-[#C9A84C]" />,
               },
               {
                 num: "02",
-                title: "Evaluación de Perfil",
-                desc: "Nuestro equipo analiza tu situación para determinar si el evento puede generar valor real en tu caso específico.",
+                title: "Confirmación por Email",
+                desc: "Recibirás confirmación de tu plaza y todos los detalles del evento directamente en tu correo.",
+                icon: <Check className="w-5 h-5 text-[#C9A84C]" />,
               },
               {
                 num: "03",
-                title: "Llamada de Selección",
-                desc: "Entrevista privada donde evaluamos tu compromiso, capacidad de inversión y alineación con el grupo.",
+                title: "Asistencia al Evento",
+                desc: "Preséntate el sábado 26 de abril en el venue exclusivo en Madrid. Todo está incluido.",
+                icon: <Award className="w-5 h-5 text-[#C9A84C]" />,
               },
               {
                 num: "04",
-                title: "Confirmación y Acceso",
-                desc: "Si eres seleccionado, recibirás acceso inmediato al grupo VIP y toda la información del evento en Madrid.",
+                title: "Llamada Post-Evento (Opcional)",
+                desc: "Tras el evento, si quieres profundizar más, te ofrecemos una llamada de seguimiento para evaluar si el Grupo VIP encaja con tu perfil.",
+                icon: <Users className="w-5 h-5 text-[#C9A84C]" />,
               },
             ].map((step, i) => (
               <div key={i} className="flex items-start gap-5 card-dark p-5">
                 <div className="w-12 h-12 rounded-full bg-[#C9A84C]/10 border-2 border-[#C9A84C]/40 flex items-center justify-center shrink-0">
                   <span className="text-[#C9A84C] font-black text-sm">{step.num}</span>
                 </div>
-                <div>
-                  <h4 className="font-black text-white mb-1">{step.title}</h4>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    {step.icon}
+                    <h4 className="font-black text-white">{step.title}</h4>
+                  </div>
                   <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="max-w-3xl mx-auto bg-[#C9A84C]/5 border border-[#C9A84C]/20 rounded-xl p-5 mb-8">
-            <p className="text-center text-sm text-gray-300">
-              <span className="text-[#C9A84C] font-bold">Importante:</span> Rechazamos aproximadamente el 60% de las solicitudes. Solo aceptamos perfiles que puedan aprovechar al máximo esta experiencia y aportar valor al grupo.
-            </p>
           </div>
 
           <div className="text-center">
@@ -931,35 +881,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── AGENDA ── */}
-      <section className="py-20 bg-[#0a0a0a]">
+      {/* ── AGENDA 2 DÍAS ── */}
+      <section className="py-14 bg-[#0a0a0a]">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-              3 Días Que Cambiarán{" "}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
+              2 Días Que Cambiarán{" "}
               <span className="text-gradient-gold">Tu Visión Del Dinero</span>
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
               No es una conferencia genérica. Es una inmersión total en el ecosistema empresarial y fiscal más avanzado. Cada día está diseñado para que salgas con claridad, contactos y estrategia real.
             </p>
           </div>
 
-          <div className="space-y-6 max-w-4xl mx-auto">
+          <div className="space-y-5 max-w-4xl mx-auto">
             {agendaData.map((day, i) => (
               <div key={i} className={`grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#C9A84C]/15 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <div className="relative h-64 md:h-auto">
+                <div className="relative h-56 md:h-auto">
                   <img src={day.img} alt={day.titulo} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111111]/80" />
                   <div className="absolute bottom-4 left-4 flex items-center gap-2">
                     <div className="w-10 h-10 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0a0a0a]">
                       {day.icon}
                     </div>
-                    <span className="text-white font-black text-lg">{day.dia}</span>
+                    <span className="text-white font-black text-lg tracking-tight">{day.dia}</span>
                   </div>
                 </div>
-                <div className="bg-[#111111] p-7">
-                  <h3 className="text-xl font-black text-white mb-4">{day.titulo}</h3>
-                  <ul className="space-y-3">
+                <div className="bg-[#111111] p-6">
+                  <h3 className="text-xl font-black text-white mb-4 tracking-tight">{day.titulo}</h3>
+                  <ul className="space-y-2.5">
                     {day.items.map((item, j) => (
                       <li key={j} className="flex items-start gap-2.5 text-gray-300 text-sm">
                         <div className="w-5 h-5 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center shrink-0 mt-0.5">
@@ -974,8 +924,8 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2.5 mb-6">
+          <div className="text-center mt-8">
+            <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2.5 mb-5">
               <Check className="w-4 h-4 text-[#C9A84C]" />
               <span className="text-[#C9A84C] text-sm font-bold">TODO INCLUIDO EN EL EVENTO</span>
             </div>
@@ -991,24 +941,25 @@ export default function Home() {
       </section>
 
       {/* ── PARA QUIÉN ES ── */}
-      <section className="py-20 bg-[#0f0f0f]">
+      <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               ¿Este Evento Es Para Ti?
             </h2>
-            <p className="text-gray-400">Descubre si este evento se adapta a tu perfil</p>
+            <p className="text-gray-400 text-sm">Descubre si este evento se adapta a tu perfil</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="card-dark p-7">
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            {/* Para ti */}
+            <div className="card-dark p-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 rounded-full bg-[#C9A84C]/20 border border-[#C9A84C]/40 flex items-center justify-center">
                   <Check className="w-4 h-4 text-[#C9A84C]" />
                 </div>
-                <h3 className="text-lg font-black text-white">Este Evento Es Para Ti Si...</h3>
+                <h3 className="text-lg font-black text-white tracking-tight">Este Evento Es Para Ti Si...</h3>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {[
                   "Eres empresario, emprendedor o profesional con ingresos estables",
                   "Sientes que estás pagando demasiados impuestos y quieres alternativas legales",
@@ -1025,58 +976,69 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="card-dark p-7 border-red-900/20">
+            {/* Tono inclusivo / empático */}
+            <div className="card-dark p-6">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-8 rounded-full bg-red-900/20 border border-red-700/40 flex items-center justify-center">
-                  <X className="w-4 h-4 text-red-400" />
+                <div className="w-8 h-8 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-[#C9A84C]" />
                 </div>
-                <h3 className="text-lg font-black text-white">Este Evento No Es Para Ti Si...</h3>
+                <h3 className="text-lg font-black text-white tracking-tight">Si Aún Tienes Dudas...</h3>
               </div>
-              <ul className="space-y-3">
+              <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                Entendemos que dar el paso hacia la optimización fiscal internacional puede generar preguntas. Si no estás seguro de si este evento es para ti, <span className="text-[#C9A84C] font-semibold">te queremos igual</span> y queremos ayudarte a decidir con información real.
+              </p>
+              <ul className="space-y-2.5 mb-5">
                 {[
-                  "Buscas información gratuita sin intención real de actuar",
-                  "No estás dispuesto a invertir en tu educación financiera",
-                  "Solo quieres una formación online más sin networking real",
-                  "No tienes ingresos estables o capacidad de inversión",
-                  "Buscas soluciones mágicas sin esfuerzo ni compromiso",
+                  "Escríbenos y te explicamos sin compromiso si encaja con tu situación",
+                  "Hablamos contigo antes de que tomes ninguna decisión",
+                  "Si no es el momento adecuado, te lo diremos con honestidad",
+                  "Nuestro objetivo es que salgas con valor real, no solo con información",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-gray-400 text-sm">
-                    <X className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2.5 text-gray-300 text-sm">
+                    <div className="w-4 h-4 rounded-full bg-[#C9A84C]/20 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
+                    </div>
                     {item}
                   </li>
                 ))}
               </ul>
+              <a
+                href="mailto:info@nexomadrid.com"
+                className="inline-flex items-center gap-2 text-[#C9A84C] font-bold text-sm hover:text-[#D4AF37] transition-colors"
+              >
+                Escríbenos directamente →
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 bg-[#0a0a0a]">
+      <section className="py-14 bg-[#0a0a0a]">
         <div className="container">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 text-[#C9A84C] text-xs font-bold tracking-wider">
               RESOLVEMOS TODAS TUS DUDAS
             </div>
           </div>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               Preguntas Frecuentes
             </h2>
-            <p className="text-gray-400">Haz clic en cada pregunta para ver la respuesta completa</p>
+            <p className="text-gray-400 text-sm">Haz clic en cada pregunta para ver la respuesta completa</p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-3">
+          <div className="max-w-3xl mx-auto space-y-2.5">
             {faqData.map((faq, i) => (
               <FAQItem key={i} q={faq.q} a={faq.a} />
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-gray-400 text-sm mb-4">¿Tienes más preguntas?</p>
+            <p className="text-gray-400 text-sm mb-3">¿Tienes más preguntas?</p>
             <a
               href="mailto:info@nexomadrid.com"
-              className="text-[#C9A84C] font-bold hover:text-[#D4AF37] transition-colors underline underline-offset-4"
+              className="text-[#C9A84C] font-bold hover:text-[#D4AF37] transition-colors underline underline-offset-4 text-sm"
             >
               Escríbenos directamente →
             </a>
@@ -1085,21 +1047,21 @@ export default function Home() {
       </section>
 
       {/* ── FORMULARIO / CTA FINAL ── */}
-      <section id="solicitar" className="py-20 bg-[#0f0f0f]">
+      <section id="solicitar" className="py-14 bg-[#0f0f0f]">
         <div className="container">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
                 Madrid No Espera
               </h2>
-              <p className="text-gray-300 text-lg">
+              <p className="text-gray-300 text-base leading-relaxed">
                 Mientras otros siguen pagando impuestos de más, tú puedes estar dentro del ecosistema, con información real, contactos reales y decisiones que cambian tu patrimonio.
               </p>
             </div>
 
-            <div className="card-dark p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-black text-white">Solicitar Plaza Ahora</h3>
+            <div className="card-dark p-7">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-xl font-black text-white tracking-tight">Solicitar Plaza Ahora</h3>
                 <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1 text-[#C9A84C] text-xs font-bold">
                   Solo {totalPlazas - placasOcupadas} plazas
                 </div>
@@ -1108,11 +1070,11 @@ export default function Home() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  alert("¡Solicitud enviada! Te contactaremos en menos de 48 horas para evaluar tu perfil.");
+                  alert("¡Solicitud enviada! Te contactaremos en menos de 48 horas con la confirmación de tu plaza y todos los detalles del evento.");
                 }}
                 className="space-y-4"
               >
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">NOMBRE COMPLETO *</label>
                     <input
@@ -1132,7 +1094,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">TELÉFONO *</label>
                     <input
@@ -1172,7 +1134,7 @@ export default function Home() {
                   <textarea
                     required
                     rows={3}
-                    placeholder="Ej: Reducir mi carga fiscal, invertir en Dubai, hacer networking con empresarios de alto nivel..."
+                    placeholder="Ej: Reducir mi carga fiscal, invertir en Dubái, hacer networking con empresarios de alto nivel..."
                     className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#C9A84C]/60 transition-colors resize-none"
                   />
                 </div>
@@ -1182,12 +1144,12 @@ export default function Home() {
                   className="btn-gold-outline rounded-xl w-full py-5 text-base font-black tracking-widest flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />
-                  QUIERO APLICAR PARA UNA PLAZA EN NEXO MADRID
+                  QUIERO APLICAR PARA UNA PLAZA EN NEXO DUBÁI - MADRID
                   <ArrowRight className="w-5 h-5" />
                 </button>
 
-                <p className="text-gray-500 text-xs text-center">
-                  Completa el formulario y te contactaremos en máximo 48 horas para evaluar si cumples con el perfil. Si eres seleccionado, coordinaremos una llamada privada para explicarte todos los detalles.
+                <p className="text-gray-500 text-xs text-center leading-relaxed">
+                  Completa el formulario y recibirás confirmación por email en máximo 48 horas con todos los detalles del evento.
                 </p>
               </form>
             </div>
@@ -1196,21 +1158,21 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#0a0a0a] border-t border-[#C9A84C]/10 py-10">
+      <footer className="bg-[#0a0a0a] border-t border-[#C9A84C]/10 py-8">
         <div className="container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#C9A84C] flex items-center justify-center">
                 <span className="text-[#0a0a0a] font-black">N</span>
               </div>
               <div>
-                <div className="font-black text-white text-xl" style={{ fontFamily: 'Playfair Display, serif' }}>NEXO MADRID</div>
-                <div className="text-[#C9A84C] text-xs font-bold tracking-widest">25-27 ABRIL 2026</div>
+                <div className="font-black text-white text-lg tracking-tight">NEXO DUBÁI - MADRID</div>
+                <div className="text-[#C9A84C] text-xs font-bold tracking-widest">26-27 ABRIL 2026</div>
               </div>
             </div>
             <div className="text-center text-gray-500 text-xs">
               <p>Solo {totalPlazas - placasOcupadas} plazas disponibles · Hotel 5★ · Networking exclusivo</p>
-              <p className="mt-1">© 2026 Nexo Madrid · Todos los derechos reservados</p>
+              <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
             <button onClick={scrollToForm} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
               RESERVAR MI PLAZA
@@ -1227,7 +1189,7 @@ export default function Home() {
               <span className="text-[#0a0a0a] font-black text-xs">N</span>
             </div>
             <div className="min-w-0">
-              <div className="text-white font-bold text-sm truncate">Nexo Madrid · 25-27 Abril 2026</div>
+              <div className="text-white font-bold text-sm truncate">Nexo Dubái - Madrid · 26-27 Abril 2026</div>
               <div className="text-gray-400 text-xs hidden sm:block truncate">
                 Solo {totalPlazas - placasOcupadas} plazas · Optimización fiscal · Networking +200 empresarios
               </div>

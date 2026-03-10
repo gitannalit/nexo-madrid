@@ -7,7 +7,9 @@
   NEXO MADRID — Design System
   Philosophy: Neo-Luxury Premium Dark
   Colors: Deep Black + Warm Gold
-  Fonts: Playfair Display (headings) + Montserrat (UI/body)
+  Fonts: Geist (headings + body) — misma tipografía que evento-nexodubai.com
+  Headings: font-weight 900, letter-spacing -0.03em
+  Body: font-weight 400, letter-spacing normal
 */
 
 @theme inline {
@@ -99,17 +101,17 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Geist', sans-serif;
     background-color: #0a0a0a;
     color: #ffffff;
   }
-  h1, h2 {
-    font-family: 'Playfair Display', serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', sans-serif;
+    letter-spacing: -0.03em;
   }
-  h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-  }
+  h1 { font-weight: 900; }
+  h2 { font-weight: 800; }
+  h3 { font-weight: 700; }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -156,7 +158,7 @@
   .btn-gold {
     background: linear-gradient(135deg, #C9A84C 0%, #D4AF37 50%, #C9A84C 100%);
     color: #0a0a0a;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -191,7 +193,7 @@
   .btn-gold-outline {
     background: linear-gradient(135deg, #C9A84C 0%, #D4AF37 50%, #C9A84C 100%);
     color: #0a0a0a;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -330,12 +332,44 @@
   .badge-exclusive {
     background: linear-gradient(135deg, #C9A84C, #D4AF37);
     color: #0a0a0a;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 900;
     font-size: 10px;
     letter-spacing: 0.1em;
     padding: 3px 10px;
     border-radius: 4px;
+  }
+
+  /* ── Mobile Optimization ── */
+  @media (max-width: 639px) {
+    /* Ensure no horizontal overflow on mobile */
+    .container {
+      overflow-x: hidden;
+    }
+
+    /* Reduce hero headline size on very small screens */
+    h1 {
+      font-size: clamp(1.75rem, 8vw, 3rem);
+      line-height: 1.1;
+    }
+
+    /* Compact countdown on mobile */
+    .countdown-unit {
+      min-width: 44px;
+    }
+
+    /* Ensure buttons don't overflow */
+    button, .btn-gold, .btn-gold-outline {
+      max-width: 100%;
+      word-break: break-word;
+    }
+
+    /* Ticker smaller on mobile */
+    .ticker-track span {
+      font-size: 11px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 
   /* Shimmer effect */
