@@ -216,6 +216,10 @@ export default function Home() {
   const [placasOcupadas] = useState(50);
   const [totalPlazas] = useState(200);
   const progressPct = Math.round((placasOcupadas / totalPlazas) * 100);
+  // Plazas VIP: de 100 disponibles, 50 ya reservadas
+  const vipOcupadas = 50;
+  const vipTotal = 100;
+  const vipProgressPct = Math.round((vipOcupadas / vipTotal) * 100);
 
   const scrollToForm = () => {
     document.getElementById("solicitar")?.scrollIntoView({ behavior: "smooth" });
@@ -618,20 +622,20 @@ export default function Home() {
                 ))}
               </ul>
 
-              <div className="bg-[#1a1a1a] rounded-full p-3 border border-[#C9A84C]/20">
-                <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Plazas reservadas:</span>
-                  <span className="text-[#C9A84C] font-bold">{progressPct}%</span>
+              <div className="bg-[#1a1a1a] rounded-xl p-4 border border-[#C9A84C]/30">
+                <div className="flex justify-between text-xs mb-2">
+                  <span className="text-gray-400 font-semibold">Plazas VIP disponibles:</span>
+                  <span className="text-[#C9A84C] font-black">{vipTotal - vipOcupadas} de {vipTotal}</span>
                 </div>
-                <div className="h-2 bg-[#222] rounded-full overflow-hidden">
+                <div className="h-2.5 bg-[#222] rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] rounded-full progress-fill"
-                    style={{ width: `${progressPct}%` }}
+                    style={{ width: `${vipProgressPct}%` }}
                   />
                 </div>
                 <div className="flex justify-between text-xs mt-2">
-                  <span className="text-gray-400">{placasOcupadas} de {totalPlazas} plazas</span>
-                  <span className="text-[#C9A84C] font-bold">¡Solo primeros 100 acceden al VIP!</span>
+                  <span className="text-gray-500">{vipOcupadas} plazas VIP ya reservadas</span>
+                  <span className="text-[#C9A84C] font-bold animate-pulse">¡Quedan {vipTotal - vipOcupadas}!</span>
                 </div>
               </div>
 
