@@ -315,10 +315,10 @@ export default function Home() {
             <span>Madrid</span>
           </div>
           <button
-            onClick={goToStripe}
+            onClick={scrollToForm}
             className="btn-gold rounded-lg px-4 py-2.5 text-xs font-black tracking-wider"
           >
-            RESERVAR PLAZA
+            SOLICITAR PLAZA
           </button>
         </div>
       </nav>
@@ -385,11 +385,11 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-1">
                 <button
-                  onClick={goToStripe}
+                  onClick={scrollToForm}
                    className="btn-gold-outline rounded-xl px-8 py-5 text-base font-black tracking-widest inline-flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />
-                  RESERVAR MI PLAZA — 97€
+                  SOLICITAR MI PLAZA AHORA
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
@@ -451,8 +451,8 @@ export default function Home() {
                 <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
                 <span className="text-[#C9A84C] text-sm font-bold">Evento exclusivo en Madrid · Abril 2026</span>
               </div>
-              <button onClick={goToStripe} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
-                RESERVAR AHORA — 97€
+              <button onClick={scrollToForm} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
+                RESERVAR AHORA
               </button>
             </div>
           </div>
@@ -569,9 +569,9 @@ export default function Home() {
               <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
             </div>
             <div className="block">
-              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-4 h-4" />
-                RESERVAR PLAZA — 97€
+                SOLICITAR PLAZA AHORA
               </button>
             </div>
             <p className="text-gray-500 text-xs mt-3">Una experiencia de alto impacto · Evento exclusivo en Madrid</p>
@@ -662,9 +662,9 @@ export default function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-[#C9A84C] fill-[#C9A84C]" />)}
               <span className="text-gray-400 text-sm ml-1">4.9/5 (basado en +50 experiencias reales)</span>
             </div>
-            <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
+            <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
                <Zap className="w-4 h-4" />
-               QUIERO MI PLAZA — 97€
+               QUIERO MI PLAZA
             </button>
           </div>
         </div>
@@ -732,9 +732,9 @@ export default function Home() {
                 <span className="text-[#C9A84C] text-3xl font-black tracking-tight">97€</span>
                 <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
               </div>
-              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
-                ASEGURA TU PLAZA — 97€
+                ASEGURA TU PLAZA
               </button>
               <div className="flex items-center justify-center gap-4 mt-3 text-xs text-gray-400">
                 <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Oferta de lanzamiento</span>
@@ -805,9 +805,9 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+            <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
-                RESERVAR MI PLAZA — 97€
+                SOLICITAR MI PLAZA AHORA
               </button>
             <p className="text-gray-500 text-xs mt-3">Completa el formulario y te contactaremos en máximo 48 horas</p>
           </div>
@@ -869,9 +869,9 @@ export default function Home() {
               <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
             </div>
             <div className="block">
-              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
-                QUIERO MI PLAZA — 97€
+                QUIERO MI PLAZA
               </button>
             </div>
             <p className="text-gray-500 text-xs mt-3">Oferta de lanzamiento · Evento exclusivo en Madrid</p>
@@ -1132,8 +1132,8 @@ export default function Home() {
               <p>Oferta de lanzamiento · Evento exclusivo en Madrid · Hotel 5★</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
-            <button onClick={goToStripe} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
-              RESERVAR MI PLAZA
+            <button onClick={scrollToForm} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
+              SOLICITAR PLAZA
             </button>
           </div>
         </div>
@@ -1154,7 +1154,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            onClick={goToStripe}
+            onClick={scrollToForm}
             className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider shrink-0 flex items-center gap-1.5"
           >
             <Zap className="w-3.5 h-3.5" />
