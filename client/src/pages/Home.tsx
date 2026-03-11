@@ -231,7 +231,7 @@ export default function Home() {
     },
     {
       q: "¿Qué incluye exactamente el evento?",
-      a: "El evento incluye: sesiones con expertos fiscales internacionales especializados en Dubái, consultoría 1:1 personalizada sobre tu situación fiscal y empresarial, networking con +200 empresarios de alto nivel, presentaciones de oportunidades de inversión inmobiliaria verificadas en Dubái con ROI del 8-12%, acceso al grupo VIP de inversión, y materiales exclusivos del evento. Todo en un venue premium en Madrid."
+      a: "El evento incluye: sesiones con expertos fiscales internacionales especializados en Dubái, consultoría 1:1 personalizada sobre tu situación fiscal y empresarial, networking con +200 empresarios de alto nivel, presentaciones de oportunidades de inversión inmobiliaria verificadas en Dubái con ROI del 8-12%, y consultoría post-evento individual opcional. Todo en un venue premium en Madrid."
     },
     {
       q: "¿Es legal pagar menos impuestos con Dubái?",
@@ -251,7 +251,7 @@ export default function Home() {
     },
     {
       q: "¿Cuáles son las fechas exactas?",
-      a: "El evento se celebra el último fin de semana de abril 2026: sábado 26 y domingo 27 de abril. Dos días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible ya que las plazas son muy limitadas."
+      a: "El evento se celebra el último fin de semana de abril 2026: sábado 26 y domingo 27 de abril. Dos días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible."
     },
     {
       q: "¿Qué diferencia hay con una formación online?",
@@ -379,7 +379,7 @@ export default function Home() {
                 <div className="h-10 w-px bg-[#C9A84C]/20" />
                 <div className="text-sm">
                   <div className="text-white font-bold">Precio de lanzamiento</div>
-                  <div className="text-gray-400 text-xs">Ahorra 53€ · Plazas limitadas</div>
+                  <div className="text-gray-400 text-xs">Ahorra 53€ · Oferta de lanzamiento</div>
                 </div>
               </div>
 
@@ -402,9 +402,7 @@ export default function Home() {
                   <span>4.9/5 (27 reseñas)</span>
                 </div>
                 <span className="text-[#C9A84C]">·</span>
-                <span>Plazas limitadas · Solo los primeros 100 formarán parte del Grupo VIP</span>
-                <span className="text-[#C9A84C]">·</span>
-                <span>Proceso de selección</span>
+                <span>26-27 Abril 2026 · Madrid</span>
               </div>
             </div>
 
@@ -423,8 +421,8 @@ export default function Home() {
                     ))}
                   </div>
                   <div>
-                    <div className="text-white text-sm font-bold">+50 plazas reservadas</div>
-                    <div className="text-gray-400 text-xs">Solo primeros 100 → Grupo VIP</div>
+                    <div className="text-white text-sm font-bold">+50 empresarios confirmados</div>
+                    <div className="text-gray-400 text-xs">Madrid · Abril 2026</div>
                   </div>
                   <div className="ml-2 text-right">
                     <div className="flex">
@@ -451,7 +449,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-end gap-2">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
-                <span className="text-[#C9A84C] text-sm font-bold">Plazas limitadas · Evento exclusivo en Madrid</span>
+                <span className="text-[#C9A84C] text-sm font-bold">Evento exclusivo en Madrid · Abril 2026</span>
               </div>
               <button onClick={goToStripe} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
                 RESERVAR AHORA — 97€
@@ -576,7 +574,7 @@ export default function Home() {
                 RESERVAR PLAZA — 97€
               </button>
             </div>
-            <p className="text-gray-500 text-xs mt-3">Una experiencia valorada en más de 10.000€ · Plazas muy limitadas</p>
+            <p className="text-gray-500 text-xs mt-3">Una experiencia de alto impacto · Evento exclusivo en Madrid</p>
           </div>
         </div>
       </section>
@@ -739,7 +737,7 @@ export default function Home() {
                 ASEGURA TU PLAZA — 97€
               </button>
               <div className="flex items-center justify-center gap-4 mt-3 text-xs text-gray-400">
-                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Plazas limitadas</span>
+                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Oferta de lanzamiento</span>
                 <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Evento verificado</span>
               </div>
             </div>
@@ -876,7 +874,7 @@ export default function Home() {
                 QUIERO MI PLAZA — 97€
               </button>
             </div>
-            <p className="text-gray-500 text-xs mt-3">Plazas limitadas · Evento exclusivo en Madrid</p>
+            <p className="text-gray-500 text-xs mt-3">Oferta de lanzamiento · Evento exclusivo en Madrid</p>
           </div>
         </div>
       </section>
@@ -1010,7 +1008,7 @@ export default function Home() {
               <div className="hidden sm:block h-14 w-px bg-[#C9A84C]/20" />
               <div>
                 <div className="text-white font-black text-lg">Precio de lanzamiento</div>
-                <div className="text-gray-400 text-sm">Ahorra 53€ · Plazas limitadas</div>
+                <div className="text-gray-400 text-sm">Ahorra 53€ · Oferta de lanzamiento</div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {["✓ 2 días intensivos", "✓ +200 empresarios", "✓ Consultoría incluida"].map((f, i) => (
                     <span key={i} className="text-[#C9A84C] text-xs font-semibold">{f}</span>
@@ -1023,7 +1021,7 @@ export default function Home() {
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-xl font-black text-white tracking-tight">Solicitar Plaza Ahora</h3>
                 <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1 text-[#C9A84C] text-xs font-bold">
-                  Plazas limitadas
+                  Oferta de lanzamiento
                 </div>
               </div>
 
@@ -1131,7 +1129,7 @@ export default function Home() {
               </div>
             </div>
               <div className="text-center text-gray-500 text-xs">
-              <p>Plazas limitadas · Evento exclusivo en Madrid · Hotel 5★</p>
+              <p>Oferta de lanzamiento · Evento exclusivo en Madrid · Hotel 5★</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
             <button onClick={goToStripe} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
@@ -1151,7 +1149,7 @@ export default function Home() {
             <div className="min-w-0">
               <div className="text-white font-bold text-sm truncate">Nexo Dubái - Madrid · 26-27 Abril 2026</div>
               <div className="text-gray-400 text-xs hidden sm:block truncate">
-                Plazas limitadas · Optimización fiscal 40-50% · Networking +200 empresarios
+                Optimización fiscal 40-50% · Networking +200 empresarios · Madrid Abril 2026
               </div>
             </div>
           </div>
