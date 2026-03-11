@@ -216,10 +216,7 @@ export default function Home() {
   const [placasOcupadas] = useState(50);
   const [totalPlazas] = useState(200);
   const progressPct = Math.round((placasOcupadas / totalPlazas) * 100);
-  // Plazas VIP: de 100 disponibles, 50 ya reservadas
-  const vipOcupadas = 50;
-  const vipTotal = 100;
-  const vipProgressPct = Math.round((vipOcupadas / vipTotal) * 100);
+
 
   const scrollToForm = () => {
     document.getElementById("solicitar")?.scrollIntoView({ behavior: "smooth" });
@@ -515,7 +512,7 @@ export default function Home() {
                   badge: "EXCLUSIVO",
                   title: "Networking de Alto Impacto",
                   metric: "+200 EMPRESARIOS",
-                  desc: "Conecta con empresarios e inversores de alto nivel que multiplican patrimonios. Una red de contactos valorada en más de €15.000/año.",
+                  desc: "Conecta con empresarios e inversores de alto nivel que multiplican patrimonios. Una red de contactos de primer nivel que puede transformar tu negocio.",
                   img: IMAGES.networking,
                   icon: <Users className="w-6 h-6" />,
                 },
@@ -550,12 +547,9 @@ export default function Home() {
                 "Consultoría 1:1 personalizada sobre tu situación fiscal",
                 "Presentación de oportunidades inmobiliarias verificadas en Dubái",
                 "Networking exclusivo con +200 empresarios de alto nivel",
-                "Acceso al Grupo VIP de Inversión (valor €15.000/año)",
                 "Plan de acción personalizado para los próximos 90 días",
-                "Materiales exclusivos del evento y documentación legal",
                 "Sesiones Q&A con fiscalistas especializados en España-Dubái",
-                "Acceso de por vida al contenido grabado del evento",
-                "Consultoría post-evento personalizada (valor €2.500)",
+                "Consultoría post-evento individual opcional",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 bg-[#111111] border border-[#C9A84C]/15 rounded-xl p-4">
                   <div className="w-5 h-5 rounded-full bg-[#C9A84C]/20 border border-[#C9A84C]/40 flex items-center justify-center shrink-0 mt-0.5">
@@ -585,100 +579,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BONOS EXCLUSIVOS ── */}
-      <section className="py-14 bg-[#0a0a0a]">
-        <div className="container">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="h-px flex-1 bg-[#C9A84C]/20" />
-            <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2 text-[#C9A84C] text-sm font-bold tracking-wider whitespace-nowrap">
-              🎁 BONOS EXCLUSIVOS INCLUIDOS
-            </div>
-            <div className="h-px flex-1 bg-[#C9A84C]/20" />
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-            {/* Bono 1 */}
-            <div className="card-dark p-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-4 py-1.5 rounded-bl-xl tracking-wider">
-                PRIMEROS 100 ASISTENTES
-              </div>
-              <div className="w-11 h-11 rounded-xl bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center mb-4">
-                <Star className="w-5 h-5 text-[#C9A84C]" />
-              </div>
-              <h3 className="text-xl font-black text-white mb-2 tracking-tight">Acceso EXCLUSIVO al Grupo VIP de Inversión</h3>
-              <p className="text-[#C9A84C] font-bold text-sm mb-1">Valor: €15.000/año — <span className="text-white">GRATIS para ti</span></p>
-              <p className="text-gray-400 text-xs mb-4">Solo los primeros 100 asistentes que reserven su plaza formarán parte del Grupo VIP.</p>
-              <ul className="space-y-2 mb-5">
-                {[
-                  "Deals inmobiliarios verificados con ROI del 8-12% anual",
-                  "Oportunidades de inversión privadas no disponibles públicamente",
-                  "Optimización fiscal de 30-40% con estrategias legales probadas",
-                  "Network de alto nivel con inversores que mueven 6-7 cifras",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-300 text-sm">
-                    <Check className="w-4 h-4 text-[#C9A84C] shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="bg-[#1a1a1a] rounded-xl p-4 border border-[#C9A84C]/30">
-                <div className="flex justify-between text-xs mb-2">
-                  <span className="text-gray-400 font-semibold">Plazas VIP disponibles:</span>
-                  <span className="text-[#C9A84C] font-black">{vipTotal - vipOcupadas} de {vipTotal}</span>
-                </div>
-                <div className="h-2.5 bg-[#222] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-[#C9A84C] to-[#D4AF37] rounded-full progress-fill"
-                    style={{ width: `${vipProgressPct}%` }}
-                  />
-                </div>
-                <div className="flex justify-between text-xs mt-2">
-                  <span className="text-gray-500">{vipOcupadas} plazas VIP ya reservadas</span>
-                  <span className="text-[#C9A84C] font-bold animate-pulse">¡Quedan {vipTotal - vipOcupadas}!</span>
-                </div>
-              </div>
-
-              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl w-full py-4 text-sm font-black tracking-widest mt-5 flex items-center justify-center gap-2">
-                <Zap className="w-4 h-4" />
-                ¡QUIERO MI ACCESO VIP!
-              </button>
-            </div>
-
-            {/* Bono 2 */}
-            <div className="card-dark p-6">
-              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1.5 mb-4">
-                <Award className="w-3.5 h-3.5 text-[#C9A84C]" />
-                <span className="text-[#C9A84C] text-xs font-bold tracking-wider">BONO ADICIONAL</span>
-              </div>
-              <h3 className="text-xl font-black text-white mb-2 tracking-tight">Consultoría Personalizada Post-Evento</h3>
-              <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                Sesión privada exclusiva donde diseñamos tu estrategia personalizada de inversión y estructura fiscal internacional. Implementamos todo lo aprendido directamente en tu caso real y te damos la hoja de ruta exacta para tu éxito.
-              </p>
-              <div className="bg-[#1a1a1a] rounded-xl p-4 border border-[#C9A84C]/20 mb-5">
-                <div className="text-2xl font-black text-[#C9A84C] tracking-tight">Valor: €2.500</div>
-                <div className="text-white font-bold">GRATIS para asistentes</div>
-              </div>
-              <div className="space-y-2.5">
-                {[
-                  "Análisis de tu situación fiscal actual",
-                  "Estructura óptima para tu caso específico",
-                  "Hoja de ruta para los próximos 90 días",
-                  "Seguimiento post-evento incluido",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <Check className="w-4 h-4 text-[#C9A84C] shrink-0" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <button onClick={scrollToForm} className="mt-5 w-full border border-[#C9A84C]/40 text-[#C9A84C] rounded-xl py-3.5 text-sm font-bold tracking-wide hover:bg-[#C9A84C]/10 transition-colors flex items-center justify-center gap-2">
-                Reservar Mi Plaza →
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── TESTIMONIOS ── */}
       <section className="py-14 bg-[#0f0f0f]">
@@ -836,7 +737,7 @@ export default function Home() {
                 ASEGURA TU PLAZA POR 97€
               </button>
               <div className="flex items-center justify-center gap-4 mt-3 text-xs text-gray-400">
-                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Plazas limitadas · Primeros 100 → Grupo VIP</span>
+                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Plazas limitadas</span>
                 <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Evento verificado</span>
               </div>
             </div>
@@ -959,7 +860,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2.5 mb-5">
               <Check className="w-4 h-4 text-[#C9A84C]" />
-              <span className="text-[#C9A84C] text-sm font-bold">TODO INCLUIDO EN EL EVENTO</span>
+              <span className="text-[#C9A84C] text-sm font-bold">ACCESO COMPLETO AL EVENTO</span>
             </div>
             {/* Price inline */}
             <div className="flex items-center justify-center gap-3 mb-5">
@@ -973,7 +874,7 @@ export default function Home() {
                 QUIERO MI PLAZA POR 97€
               </button>
             </div>
-            <p className="text-gray-500 text-xs mt-3">Plazas limitadas · Solo los primeros 100 formarán parte del Grupo VIP</p>
+            <p className="text-gray-500 text-xs mt-3">Plazas limitadas · Evento exclusivo en Madrid</p>
           </div>
         </div>
       </section>
@@ -1107,9 +1008,9 @@ export default function Home() {
               <div className="hidden sm:block h-14 w-px bg-[#C9A84C]/20" />
               <div>
                 <div className="text-white font-black text-lg">Precio de lanzamiento</div>
-                <div className="text-gray-400 text-sm">Ahorra 53€ · Plazas limitadas · Primeros 100 → Grupo VIP</div>
+                <div className="text-gray-400 text-sm">Ahorra 53€ · Plazas limitadas</div>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {["✓ 2 días intensivos", "✓ +200 empresarios", "✓ Bonos incluidos"].map((f, i) => (
+                  {["✓ 2 días intensivos", "✓ +200 empresarios", "✓ Consultoría incluida"].map((f, i) => (
                     <span key={i} className="text-[#C9A84C] text-xs font-semibold">{f}</span>
                   ))}
                 </div>
@@ -1228,7 +1129,7 @@ export default function Home() {
               </div>
             </div>
               <div className="text-center text-gray-500 text-xs">
-              <p>Plazas limitadas · Solo los primeros 100 formarán parte del Grupo VIP · Hotel 5★</p>
+              <p>Plazas limitadas · Evento exclusivo en Madrid · Hotel 5★</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
             <button onClick={scrollToForm} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
@@ -1248,7 +1149,7 @@ export default function Home() {
             <div className="min-w-0">
               <div className="text-white font-bold text-sm truncate">Nexo Dubái - Madrid · 26-27 Abril 2026</div>
               <div className="text-gray-400 text-xs hidden sm:block truncate">
-                Plazas limitadas · Primeros 100 → Grupo VIP · Networking +200 empresarios
+                Plazas limitadas · Optimización fiscal 40-50% · Networking +200 empresarios
               </div>
             </div>
           </div>
