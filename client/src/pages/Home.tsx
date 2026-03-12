@@ -928,20 +928,23 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative rounded-2xl overflow-hidden border border-[#C9A84C]/20 shadow-2xl bg-[#0f0f0f]">
-              <video
-                controls
-                preload="metadata"
-                className="w-full block"
-                style={{ display: 'block', width: '100%', height: 'auto' }}
-              >
-                <source
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663302271654/LX9svCg6s9iPetjh8LdbMh/testimonios_optimizado_0bcc8676.mp4"
-                  type="video/mp4"
-                />
-                Tu navegador no soporta la reproducción de vídeo.
-              </video>
-              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.15)' }} />
+            {/* Vídeo vertical centrado con ancho máximo razonable */}
+            <div className="flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden border border-[#C9A84C]/20 shadow-2xl bg-[#0f0f0f] w-full" style={{ maxWidth: '360px' }}>
+                <video
+                  controls
+                  preload="metadata"
+                  className="block w-full"
+                  style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '640px' }}
+                >
+                  <source
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663302271654/LX9svCg6s9iPetjh8LdbMh/testimonios_optimizado_0bcc8676.mp4"
+                    type="video/mp4"
+                  />
+                  Tu navegador no soporta la reproducción de vídeo.
+                </video>
+                <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.15)' }} />
+              </div>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-gray-400">
