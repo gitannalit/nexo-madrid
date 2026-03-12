@@ -576,6 +576,124 @@ export default function Home() {
 
 
 
+      {/* ── AGENDA 2 DÍAS ── */}
+      <section className="py-14 bg-[#0a0a0a]">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
+              2 Días Que Cambiarán{" "}
+              <span className="text-gradient-gold">Tu Visión Del Dinero</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
+              No es una conferencia genérica. Es una inmersión total en el ecosistema empresarial y fiscal más avanzado. Cada día está diseñado para que salgas con claridad, contactos y estrategia real.
+            </p>
+          </div>
+
+          <div className="space-y-5 max-w-4xl mx-auto">
+            {agendaData.map((day, i) => (
+              <div key={i} className={`grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#C9A84C]/15 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+                <div className="relative h-56 md:h-auto">
+                  <img src={day.img} alt={day.titulo} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111111]/80" />
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0a0a0a]">
+                      {day.icon}
+                    </div>
+                    <span className="text-white font-black text-lg tracking-tight">{day.dia}</span>
+                  </div>
+                </div>
+                <div className="bg-[#111111] p-6">
+                  <h3 className="text-xl font-black text-white mb-4 tracking-tight">{day.titulo}</h3>
+                  <ul className="space-y-2.5">
+                    {day.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-gray-300 text-sm">
+                        <div className="w-5 h-5 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center shrink-0 mt-0.5">
+                          <ArrowRight className="w-3 h-3 text-[#C9A84C]" />
+                        </div>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2.5 mb-5">
+              <Check className="w-4 h-4 text-[#C9A84C]" />
+              <span className="text-[#C9A84C] text-sm font-bold">ACCESO COMPLETO AL EVENTO</span>
+            </div>
+            {/* Price inline */}
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <span className="text-gray-500 text-base line-through">297€</span>
+              <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
+              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO ONLINE</span>
+            </div>
+            <div className="block">
+              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+                <Zap className="w-5 h-5" />
+                QUIERO MI PLAZA
+              </button>
+            </div>
+            <p className="text-gray-500 text-xs mt-3">Precio online · Evento exclusivo en Madrid</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VÍDEO TESTIMONIOS ── */}
+      <section className="py-14 bg-[#111]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 mb-4">
+                <span className="text-[#C9A84C] text-xs font-bold tracking-wider">▶ QUIÉNES SOMOS Y QUÉ HACEMOS</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
+                Conoce a la <span className="text-[#C9A84C]">Comunidad Nexo</span>
+              </h2>
+              <p className="text-gray-400 text-sm max-w-xl mx-auto">
+                Empresarios reales que ya han dado el paso. Esto es lo que dicen después de vivir la experiencia.
+              </p>
+            </div>
+
+            {/* Vídeo vertical centrado con ancho máximo razonable */}
+            <div className="flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden border border-[#C9A84C]/20 shadow-2xl bg-[#0f0f0f] w-full" style={{ maxWidth: '360px' }}>
+                <video
+                  controls
+                  preload="metadata"
+                  className="block w-full"
+                  style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '640px' }}
+                >
+                  <source
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663302271654/LX9svCg6s9iPetjh8LdbMh/testimonios_optimizado_0bcc8676.mp4"
+                    type="video/mp4"
+                  />
+                  Tu navegador no soporta la reproducción de vídeo.
+                </video>
+                <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.15)' }} />
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-gray-400">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                Evento Nexo Dubái · Feb–Mar 2026
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                +50 empresarios participantes
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                Experiencias reales y verificadas
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIOS ── */}
       <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
@@ -809,71 +927,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── AGENDA 2 DÍAS ── */}
-      <section className="py-14 bg-[#0a0a0a]">
-        <div className="container">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
-              2 Días Que Cambiarán{" "}
-              <span className="text-gradient-gold">Tu Visión Del Dinero</span>
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm">
-              No es una conferencia genérica. Es una inmersión total en el ecosistema empresarial y fiscal más avanzado. Cada día está diseñado para que salgas con claridad, contactos y estrategia real.
-            </p>
-          </div>
-
-          <div className="space-y-5 max-w-4xl mx-auto">
-            {agendaData.map((day, i) => (
-              <div key={i} className={`grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#C9A84C]/15 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <div className="relative h-56 md:h-auto">
-                  <img src={day.img} alt={day.titulo} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111111]/80" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-[#C9A84C] flex items-center justify-center text-[#0a0a0a]">
-                      {day.icon}
-                    </div>
-                    <span className="text-white font-black text-lg tracking-tight">{day.dia}</span>
-                  </div>
-                </div>
-                <div className="bg-[#111111] p-6">
-                  <h3 className="text-xl font-black text-white mb-4 tracking-tight">{day.titulo}</h3>
-                  <ul className="space-y-2.5">
-                    {day.items.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-gray-300 text-sm">
-                        <div className="w-5 h-5 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center shrink-0 mt-0.5">
-                          <ArrowRight className="w-3 h-3 text-[#C9A84C]" />
-                        </div>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-5 py-2.5 mb-5">
-              <Check className="w-4 h-4 text-[#C9A84C]" />
-              <span className="text-[#C9A84C] text-sm font-bold">ACCESO COMPLETO AL EVENTO</span>
-            </div>
-            {/* Price inline */}
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <span className="text-gray-500 text-base line-through">297€</span>
-              <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
-              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO ONLINE</span>
-            </div>
-            <div className="block">
-              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
-                <Zap className="w-5 h-5" />
-                QUIERO MI PLAZA
-              </button>
-            </div>
-            <p className="text-gray-500 text-xs mt-3">Precio online · Evento exclusivo en Madrid</p>
-          </div>
-        </div>
-      </section>
-
       {/* ── PARA QUIÉN ES ── */}
       <section className="py-14 bg-[#0f0f0f]">
         <div className="container">
@@ -907,59 +960,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VÍDEO TESTIMONIOS ── */}
-      <section className="py-14 bg-[#111]">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 mb-4">
-                <span className="text-[#C9A84C] text-xs font-bold tracking-wider">▶ QUIÉNES SOMOS Y QUÉ HACEMOS</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
-                Conoce a la <span className="text-[#C9A84C]">Comunidad Nexo</span>
-              </h2>
-              <p className="text-gray-400 text-sm max-w-xl mx-auto">
-                Empresarios reales que ya han dado el paso. Esto es lo que dicen después de vivir la experiencia.
-              </p>
-            </div>
-
-            {/* Vídeo vertical centrado con ancho máximo razonable */}
-            <div className="flex justify-center">
-              <div className="relative rounded-2xl overflow-hidden border border-[#C9A84C]/20 shadow-2xl bg-[#0f0f0f] w-full" style={{ maxWidth: '360px' }}>
-                <video
-                  controls
-                  preload="metadata"
-                  className="block w-full"
-                  style={{ display: 'block', width: '100%', height: 'auto', maxHeight: '640px' }}
-                >
-                  <source
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663302271654/LX9svCg6s9iPetjh8LdbMh/testimonios_optimizado_0bcc8676.mp4"
-                    type="video/mp4"
-                  />
-                  Tu navegador no soporta la reproducción de vídeo.
-                </video>
-                <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.15)' }} />
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-gray-400">
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
-                Evento Nexo Dubái · Feb–Mar 2026
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
-                +50 empresarios participantes
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
-                Experiencias reales y verificadas
-              </span>
             </div>
           </div>
         </div>
