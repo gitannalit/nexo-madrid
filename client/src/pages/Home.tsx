@@ -231,7 +231,7 @@ export default function Home() {
     },
     {
       q: "¿Qué incluye exactamente el evento?",
-      a: "El evento incluye: sesiones con expertos fiscales internacionales especializados en Dubái, consultoría 1:1 personalizada sobre tu situación fiscal y empresarial, networking con +200 empresarios de alto nivel, presentaciones de oportunidades de inversión inmobiliaria verificadas en Dubái con ROI del 8-12%, y consultoría post-evento individual opcional. Todo en un venue premium en Madrid."
+      a: "El evento incluye: sesiones con expertos fiscales internacionales especializados en Dubái, networking con +200 empresarios de alto nivel, presentación de oportunidades inmobiliarias verificadas en Dubái con ROI del 8-20%, y asesoramiento post-evento individual opcional. Todo en un venue premium en Madrid."
     },
     {
       q: "¿Es legal pagar menos impuestos con Dubái?",
@@ -278,9 +278,8 @@ export default function Home() {
       dia: "Domingo 27",
       titulo: "Inversión, Estrategia y Plan de Acción",
       items: [
-        "Presentación de oportunidades inmobiliarias verificadas con ROI 8-12% anual",
-        "Estrategias de diversificación patrimonial y apalancamiento inteligente",
-        "Sesiones 1:1 con consultores especializados en tu caso",
+        "Presentación de oportunidades inmobiliarias verificadas con ROI 8-20% anual",
+                "Estrategia de diversificación patrimonial e inversión inteligente",
         "Networking con inversores activos en el mercado de Dubái",
         "Tu plan de acción personalizado para los próximos 90 días",
       ],
@@ -503,8 +502,8 @@ export default function Home() {
                 {
                   badge: "EXCLUSIVO",
                   title: "Inversión Inmobiliaria en Dubái",
-                  metric: "8-12% ROI",
-                  desc: "Acceso directo a propiedades verificadas con ROI del 8-12% anual y oportunidades de inversión que no están disponibles públicamente.",
+                  metric: "8-20% ROI",
+                  desc: "Acceso directo a propiedades verificadas con ROI del 8-20% anual y oportunidades de inversión que no están disponibles públicamente.",
                   img: IMAGES.realEstate,
                   icon: <Building2 className="w-6 h-6" />,
                 },
@@ -544,7 +543,6 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto">
               {[
                 "Sesiones magistrales con expertos fiscales internacionales",
-                "Consultoría 1:1 personalizada sobre tu situación fiscal",
                 "Presentación de oportunidades inmobiliarias verificadas en Dubái",
                 "Networking exclusivo con +200 empresarios de alto nivel",
                 "Plan de acción personalizado para los próximos 90 días",
@@ -564,9 +562,9 @@ export default function Home() {
           <div className="text-center mt-8">
             {/* Price reminder */}
             <div className="inline-flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-full px-6 py-3 mb-5">
-              <span className="text-gray-500 text-sm line-through">150€</span>
-              <span className="text-[#C9A84C] text-2xl font-black tracking-tight">97€</span>
-              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
+              <span className="text-gray-500 text-sm line-through">297€</span>
+              <span className="text-[#C9A84C] text-2xl font-black tracking-tight">197€</span>
+              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
             </div>
             <div className="block">
               <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
@@ -713,7 +711,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: "40-50%", label: "Ahorro Fiscal", desc: "Reducción de carga tributaria" },
-                { value: "8-12%", label: "ROI Inmobiliario", desc: "Rentabilidad anual verificada" },
+                { value: "8-20%", label: "ROI Inmobiliario", desc: "Rentabilidad anual verificada" },
               ].map((metric, i) => (
                 <div key={i} className="bg-[#1a1a1a] rounded-xl p-5 text-center border border-[#C9A84C]/10">
                   <div className="text-4xl font-black text-[#C9A84C] mb-1 tracking-tight">
@@ -728,9 +726,9 @@ export default function Home() {
               <div className="text-center mt-6">
               {/* Price in metrics section */}
               <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="text-gray-500 text-base line-through">150€</span>
-                <span className="text-[#C9A84C] text-3xl font-black tracking-tight">97€</span>
-                <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
+                <span className="text-gray-500 text-base line-through">297€</span>
+                <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
+                <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
               </div>
               <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
@@ -864,9 +862,9 @@ export default function Home() {
             </div>
             {/* Price inline */}
             <div className="flex items-center justify-center gap-3 mb-5">
-              <span className="text-gray-500 text-base line-through">150€</span>
-              <span className="text-[#C9A84C] text-3xl font-black tracking-tight">97€</span>
-              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">OFERTA EXCLUSIVA</span>
+              <span className="text-gray-500 text-base line-through">297€</span>
+              <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
+              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
             </div>
             <div className="block">
               <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
@@ -1001,14 +999,14 @@ export default function Home() {
             {/* Price block above form */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-6 py-5">
               <div className="text-center">
-                <div className="text-gray-500 text-sm font-bold tracking-wider line-through">150€</div>
-                <div className="text-[#C9A84C] text-5xl font-black tracking-tight leading-none">97€</div>
-                <div className="text-[#C9A84C] text-xs font-black tracking-widest mt-1">OFERTA EXCLUSIVA</div>
+                <div className="text-gray-500 text-sm font-bold tracking-wider line-through">297€</div>
+                <div className="text-[#C9A84C] text-5xl font-black tracking-tight leading-none">197€</div>
+                <div className="text-[#C9A84C] text-xs font-black tracking-widest mt-1">PRECIO LANZAMIENTO</div>
               </div>
               <div className="hidden sm:block h-14 w-px bg-[#C9A84C]/20" />
               <div>
                 <div className="text-white font-black text-lg">Precio de lanzamiento</div>
-                <div className="text-gray-400 text-sm">Ahorra 53€ · Oferta de lanzamiento</div>
+                <div className="text-gray-400 text-sm">Ahorra 100€ · Precio exclusivo de lanzamiento</div>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {["✓ 2 días intensivos", "✓ +200 empresarios", "✓ Consultoría incluida"].map((f, i) => (
                     <span key={i} className="text-[#C9A84C] text-xs font-semibold">{f}</span>
@@ -1032,8 +1030,7 @@ export default function Home() {
                 }}
                 className="space-y-4"
               >
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
+                <div>
                     <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">NOMBRE COMPLETO *</label>
                     <input
                       type="text"
@@ -1051,8 +1048,6 @@ export default function Home() {
                       className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#C9A84C]/60 transition-colors"
                     />
                   </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">TELÉFONO *</label>
                     <input
@@ -1062,52 +1057,18 @@ export default function Home() {
                       className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#C9A84C]/60 transition-colors"
                     />
                   </div>
-                  <div>
-                    <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">SECTOR / NEGOCIO *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Ej: E-commerce, Consultoría..."
-                      className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#C9A84C]/60 transition-colors"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">FACTURACIÓN ANUAL APROXIMADA *</label>
-                  <select
-                    required
-                    className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-[#C9A84C]/60 transition-colors"
-                    defaultValue=""
-                  >
-                    <option value="" disabled className="text-gray-600">Selecciona un rango</option>
-                    <option value="50-100k">50.000€ - 100.000€</option>
-                    <option value="100-250k">100.000€ - 250.000€</option>
-                    <option value="250-500k">250.000€ - 500.000€</option>
-                    <option value="500k-1m">500.000€ - 1.000.000€</option>
-                    <option value="+1m">Más de 1.000.000€</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-gray-400 text-xs font-bold tracking-wider block mb-1.5">¿CUÁL ES TU PRINCIPAL OBJETIVO? *</label>
-                  <textarea
-                    required
-                    rows={3}
-                    placeholder="Ej: Reducir mi carga fiscal, invertir en Dubái, hacer networking con empresarios de alto nivel..."
-                    className="w-full bg-[#1a1a1a] border border-[#C9A84C]/20 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#C9A84C]/60 transition-colors resize-none"
-                  />
-                </div>
 
                 <button
                   type="submit"
                   className="btn-gold-outline rounded-xl w-full py-5 text-base font-black tracking-widest flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />
-                  RESERVAR MI PLAZA — 97€
+                  RESERVAR MI PLAZA — 197€
                   <ArrowRight className="w-5 h-5" />
                 </button>
 
                 <p className="text-gray-500 text-xs text-center leading-relaxed">
-                  Serás redirigido al pago seguro. Tras completarlo recibirás confirmación por email con todos los detalles del evento.
+                  Pago 100% seguro. Tras completarlo recibirás confirmación por email con todos los detalles del evento.
                 </p>
               </form>
             </div>
