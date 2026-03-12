@@ -383,4 +383,330 @@
     background-size: 200% 100%;
     animation: shimmer 3s ease infinite;
   }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     ANIMACIONES LLAMATIVAS - NEXO MADRID
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Floating animation suave */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Glow pulsante dorado */
+  @keyframes glowPulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3), 0 0 40px rgba(201, 168, 76, 0.1);
+    }
+    50% { 
+      box-shadow: 0 0 30px rgba(201, 168, 76, 0.5), 0 0 60px rgba(201, 168, 76, 0.2);
+    }
+  }
+
+  .animate-glow-pulse {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  /* Slide in desde abajo con fade */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  /* Slide in desde izquierda */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.7s ease-out forwards;
+  }
+
+  /* Slide in desde derecha */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.7s ease-out forwards;
+  }
+
+  /* Scale bounce entrada */
+  @keyframes scaleBounce {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-bounce {
+    animation: scaleBounce 0.6s ease-out forwards;
+  }
+
+  /* Rotate y scale en hover para iconos */
+  .animate-icon-hover {
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .animate-icon-hover:hover {
+    transform: scale(1.2) rotate(5deg);
+  }
+
+  /* Borde dorado animado */
+  @keyframes borderGlow {
+    0%, 100% {
+      border-color: rgba(201, 168, 76, 0.3);
+    }
+    50% {
+      border-color: rgba(201, 168, 76, 0.8);
+    }
+  }
+
+  .animate-border-glow {
+    animation: borderGlow 2s ease-in-out infinite;
+  }
+
+  /* Gradient text animado */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient-text {
+    background: linear-gradient(90deg, #C9A84C, #E5C84A, #D4AF37, #C9A84C);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+
+  /* Shake suave para llamar atención */
+  @keyframes gentleShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+
+  .animate-gentle-shake {
+    animation: gentleShake 0.6s ease-in-out;
+  }
+
+  /* Reveal on scroll */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delay utilities */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Sparkle effect para badges */
+  @keyframes sparkle {
+    0%, 100% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  /* Breathing effect para CTAs */
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+
+  .animate-breathe {
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  /* Card hover lift con sombra */
+  .card-hover-lift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, 0.15), 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Underline animado */
+  .animated-underline {
+    position: relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #C9A84C, #D4AF37);
+    transition: width 0.4s ease;
+  }
+
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Ripple effect en botones */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Número countdown flip animation */
+  @keyframes flipNumber {
+    0% { 
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    50% { 
+      transform: rotateX(-90deg);
+      opacity: 0;
+    }
+    100% { 
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+  }
+
+  .animate-flip {
+    animation: flipNumber 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Parallax suave en scroll */
+  .parallax-slow {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* Text reveal letra por letra */
+  @keyframes textReveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px) rotateX(-90deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+
+  .text-reveal-char {
+    display: inline-block;
+    animation: textReveal 0.5s ease forwards;
+    opacity: 0;
+  }
+
+  /* Morphing shape background */
+  @keyframes morphBg {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+    75% { border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%; }
+  }
+
+  .animate-morph {
+    animation: morphBg 8s ease-in-out infinite;
+  }
+
+  /* Magnetic hover effect */
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Stats counter reveal */
+  @keyframes countReveal {
+    from {
+      opacity: 0;
+      transform: scale(0.5) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .animate-count-reveal {
+    animation: countReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
 }

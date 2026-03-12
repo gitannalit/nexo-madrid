@@ -3,7 +3,7 @@
  * Design: Neo-Luxury Premium Dark (Negro profundo + Dorado cálido)
  * Fonts: Geist (misma tipografía que evento-nexodubai.com) — weight 900 headings, -0.03em letter-spacing
  * Colors: #0a0a0a background, #C9A84C/#D4AF37 gold accents, #F5F5F5 text
- * Event: Sábado 26 y Domingo 27 de Abril 2026 — Madrid
+ * Event: Viernes 25 y Sábado 26 de Abril 2026 — Madrid
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -122,7 +122,7 @@ function HeroCarousel() {
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-[#C9A84C]/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C9A84C]/40">
+    <div className="border border-[#C9A84C]/20 rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C9A84C]/40 card-hover-lift">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-start justify-between p-5 text-left bg-[#111111] hover:bg-[#161616] transition-colors gap-4"
@@ -141,7 +141,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 // ─── Countdown Timer ─────────────────────────────────────────────────────────
 function CountdownTimer() {
-  const eventDate = new Date('2026-04-26T09:00:00');
+  const eventDate = new Date('2026-04-25T09:00:00');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -171,8 +171,8 @@ function CountdownTimer() {
       ].map((unit, i) => (
         <div key={i} className="flex items-center gap-2">
           <div className="text-center">
-            <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-lg px-3 py-2 min-w-[52px]">
-              <span className="text-[#C9A84C] font-black text-2xl block tracking-tight">
+            <div className="bg-[#111111] border border-[#C9A84C]/30 rounded-lg px-3 py-2 min-w-[52px] animate-border-glow">
+              <span className="text-[#C9A84C] font-black text-2xl block tracking-tight animate-gradient-text">
                 {String(unit.val).padStart(2, '0')}
               </span>
             </div>
@@ -248,7 +248,7 @@ export default function Home() {
     },
     {
       q: "¿Cuáles son las fechas exactas?",
-      a: "El evento se celebra el último fin de semana de abril 2026: sábado 26 y domingo 27 de abril. Dos días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible."
+      a: "El evento se celebra el viernes 25 y sábado 26 de abril 2026. Dos días intensivos en un venue exclusivo en Madrid. Te recomendamos reservar tu plaza lo antes posible."
     },
     {
       q: "¿Qué diferencia hay con una formación online?",
@@ -259,7 +259,7 @@ export default function Home() {
   // 2 días: sábado y domingo
   const agendaData = [
     {
-      dia: "Sábado 26",
+      dia: "Viernes 25",
       titulo: "Optimización Fiscal y Estructura Internacional",
       items: [
         "Bienvenida exclusiva y networking inicial con los +200 asistentes",
@@ -272,7 +272,7 @@ export default function Home() {
       img: IMAGES.fiscal,
     },
     {
-      dia: "Domingo 27",
+      dia: "Sábado 26",
       titulo: "Inversión, Estrategia y Plan de Acción",
       items: [
         "Presentación de oportunidades inmobiliarias verificadas con ROI 8-20% anual",
@@ -305,7 +305,7 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-2 text-xs text-gray-400">
             <Calendar className="w-3.5 h-3.5 text-[#C9A84C]" />
-            <span>26-27 Abril 2026</span>
+            <span>25-26 Abril 2026</span>
             <span className="mx-2 text-[#C9A84C]">·</span>
             <MapPin className="w-3.5 h-3.5 text-[#C9A84C]" />
             <span>Madrid</span>
@@ -329,19 +329,19 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Left: Text */}
             <div className="space-y-5">
-              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2">
-                <Award className="w-4 h-4 text-[#C9A84C]" />
+              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 animate-slide-in-left animate-sparkle">
+                <Award className="w-4 h-4 text-[#C9A84C] animate-icon-hover" />
                 <span className="text-[#C9A84C] text-xs font-bold tracking-wider">EVENTO VALIDADO POR +50 EMPRESARIOS EXITOSOS</span>
               </div>
 
               <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-semibold">
                 <Calendar className="w-4 h-4" />
-                <span>26 Y 27 DE ABRIL DE 2026 · MADRID</span>
+                <span>25 Y 26 DE ABRIL DE 2026 · MADRID</span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight animate-slide-in-up">
                 El evento más exclusivo para{" "}
-                <span className="text-gradient-gold">optimizar tu fiscalidad</span>{" "}
+                <span className="animate-gradient-text">optimizar tu fiscalidad</span>{" "}
                 e invertir en Dubái
               </h1>
 
@@ -366,7 +366,7 @@ export default function Home() {
               </div>
 
               {/* Price badge */}
-              <div className="flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-5 py-4 w-fit">
+              <div className="flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-5 py-4 w-fit animate-glow-pulse animate-float">
                 <div className="text-center">
                   <div className="text-gray-500 text-xs font-bold tracking-wider line-through">297€</div>
                   <div className="text-[#C9A84C] text-3xl font-black tracking-tight leading-none">197€</div>
@@ -382,9 +382,9 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 pt-1">
                 <button
                   onClick={goToStripe}
-                   className="btn-gold-outline rounded-xl px-8 py-5 text-base font-black tracking-widest inline-flex items-center justify-center gap-2"
+                   className="btn-gold-outline btn-ripple rounded-xl px-8 py-5 text-base font-black tracking-widest inline-flex items-center justify-center gap-2 animate-breathe"
                 >
-                  <Zap className="w-5 h-5" />
+                  <Zap className="w-5 h-5 animate-icon-hover" />
                   SOLICITAR MI PLAZA AHORA
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -398,13 +398,13 @@ export default function Home() {
                   <span>4.9/5 (27 reseñas)</span>
                 </div>
                 <span className="text-[#C9A84C]">·</span>
-                <span>26-27 Abril 2026 · Madrid</span>
+                <span>25-26 Abril 2026 · Madrid</span>
               </div>
             </div>
 
             {/* Right: Carousel */}
-            <div className="relative">
-              <div className="aspect-video w-full">
+            <div className="relative animate-slide-in-right">
+              <div className="aspect-video w-full animate-glow-pulse">
                 <HeroCarousel />
               </div>
               <div className="absolute -bottom-5 -left-5 bg-[#111111] border border-[#C9A84C]/30 rounded-xl p-4 shadow-2xl hidden md:block">
@@ -439,7 +439,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <div className="text-[#C9A84C] text-xs font-bold tracking-widest mb-1">CUENTA ATRÁS PARA EL EVENTO</div>
-              <div className="text-white text-sm font-semibold">26 de Abril 2026 · Madrid</div>
+              <div className="text-white text-sm font-semibold">25 de Abril 2026 · Madrid</div>
             </div>
             <CountdownTimer />
             <div className="flex flex-col items-center md:items-end gap-2">
@@ -513,7 +513,7 @@ export default function Home() {
                   icon: <Users className="w-6 h-6" />,
                 },
               ].map((card, i) => (
-                <div key={i} className="card-dark overflow-hidden group">
+                <div key={i} className="card-dark overflow-hidden group card-hover-lift" style={{ animationDelay: `${i * 150}ms` }}>
                   <div className="relative h-44 overflow-hidden">
                     <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
@@ -582,7 +582,7 @@ export default function Home() {
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
               2 Días Que Cambiarán{" "}
-              <span className="text-gradient-gold">Tu Visión Del Dinero</span>
+              <span className="animate-gradient-text">Tu Visión Del Dinero</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm">
               No es una conferencia genérica. Es una inmersión total en el ecosistema empresarial y fiscal más avanzado. Cada día está diseñado para que salgas con claridad, contactos y estrategia real.
@@ -591,7 +591,7 @@ export default function Home() {
 
           <div className="space-y-5 max-w-4xl mx-auto">
             {agendaData.map((day, i) => (
-              <div key={i} className={`grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#C9A84C]/15 ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+              <div key={i} className={`grid md:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#C9A84C]/15 card-hover-lift ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
                 <div className="relative h-56 md:h-auto">
                   <img src={day.img} alt={day.titulo} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#111111]/80" />
@@ -740,7 +740,7 @@ export default function Home() {
                 ],
               },
             ].map((t, i) => (
-              <div key={i} className="card-dark p-6 flex flex-col">
+              <div key={i} className="card-dark p-6 flex flex-col card-hover-lift" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/20 rounded-full px-3 py-1 mb-4 self-start">
                   <Check className="w-3 h-3 text-[#C9A84C]" />
                   <span className="text-[#C9A84C] text-xs font-bold">Verificado — Cliente Real</span>
@@ -811,9 +811,9 @@ export default function Home() {
                 <div className="relative w-36 h-36">
                   <div className="absolute inset-0 rounded-full border-4 border-[#C9A84C]/20" />
                   <div className="absolute inset-2 rounded-full border-4 border-[#C9A84C]/40" />
-                  <div className="absolute inset-4 rounded-full bg-[#C9A84C]/10 flex items-center justify-center">
+                  <div className="absolute inset-4 rounded-full bg-[#C9A84C]/10 flex items-center justify-center animate-morph">
                     <div className="text-center">
-                      <div className="text-4xl font-black text-[#C9A84C] tracking-tight">
+                      <div className="text-4xl font-black tracking-tight animate-gradient-text">
                         <AnimatedNumber value="10" suffix="X" />
                       </div>
                       <div className="text-xs text-gray-400 font-bold tracking-wider">ROI POTENCIAL</div>
@@ -892,7 +892,7 @@ export default function Home() {
               {
                 num: "03",
                 title: "Asistencia al Evento",
-                desc: "Preséntate el sábado 26 de abril en el venue exclusivo en Madrid. Todo está incluido.",
+                desc: "Preséntate el viernes 25 de abril en el venue exclusivo en Madrid. Todo está incluido.",
                 icon: <Award className="w-5 h-5 text-[#C9A84C]" />,
               },
               {
@@ -902,9 +902,9 @@ export default function Home() {
                 icon: <Users className="w-5 h-5 text-[#C9A84C]" />,
               },
             ].map((step, i) => (
-              <div key={i} className="flex items-start gap-5 card-dark p-5">
-                <div className="w-12 h-12 rounded-full bg-[#C9A84C]/10 border-2 border-[#C9A84C]/40 flex items-center justify-center shrink-0">
-                  <span className="text-[#C9A84C] font-black text-sm">{step.num}</span>
+              <div key={i} className="flex items-start gap-5 card-dark p-5 card-hover-lift" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="w-12 h-12 rounded-full bg-[#C9A84C]/10 border-2 border-[#C9A84C]/40 flex items-center justify-center shrink-0 animate-border-glow">
+                  <span className="text-[#C9A84C] font-black text-sm animate-gradient-text">{step.num}</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
@@ -1012,7 +1012,7 @@ export default function Home() {
             </div>
 
             {/* Price block above form */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-6 py-5">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-6 py-5 animate-glow-pulse">
               <div className="text-center">
                 <div className="text-gray-500 text-sm font-bold tracking-wider line-through">297€</div>
                 <div className="text-[#C9A84C] text-5xl font-black tracking-tight leading-none">197€</div>
@@ -1075,9 +1075,9 @@ export default function Home() {
 
                 <button
                   type="submit"
-                  className="btn-gold-outline rounded-xl w-full py-5 text-base font-black tracking-widest flex items-center justify-center gap-2"
+                  className="btn-gold-outline btn-ripple rounded-xl w-full py-5 text-base font-black tracking-widest flex items-center justify-center gap-2 animate-breathe"
                 >
-                  <Zap className="w-5 h-5" />
+                  <Zap className="w-5 h-5 animate-icon-hover" />
                   RESERVAR MI PLAZA — 197€
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -1101,7 +1101,7 @@ export default function Home() {
               </div>
               <div>
                 <div className="font-black text-white text-lg tracking-tight">NEXO DUBÁI - MADRID</div>
-                <div className="text-[#C9A84C] text-xs font-bold tracking-widest">26-27 ABRIL 2026</div>
+                <div className="text-[#C9A84C] text-xs font-bold tracking-widest">25-26 ABRIL 2026</div>
               </div>
             </div>
               <div className="text-center text-gray-500 text-xs">
@@ -1123,7 +1123,7 @@ export default function Home() {
               <span className="text-[#0a0a0a] font-black text-xs">N</span>
             </div>
             <div className="min-w-0">
-              <div className="text-white font-bold text-sm truncate">Nexo Dubái - Madrid · 26-27 Abril 2026</div>
+              <div className="text-white font-bold text-sm truncate">Nexo Dubái - Madrid · 25-26 Abril 2026</div>
               <div className="text-gray-400 text-xs hidden sm:block truncate">
                 Optimización fiscal 40-50% · Networking +200 empresarios · Madrid Abril 2026
               </div>
@@ -1131,9 +1131,9 @@ export default function Home() {
           </div>
           <button
             onClick={goToStripe}
-            className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider shrink-0 flex items-center gap-1.5"
+            className="btn-gold btn-ripple rounded-lg px-5 py-2.5 text-xs font-black tracking-wider shrink-0 flex items-center gap-1.5 animate-breathe"
           >
-            <Zap className="w-3.5 h-3.5" />
+            <Zap className="w-3.5 h-3.5 animate-icon-hover" />
             RESERVAR MI PLAZA AHORA
           </button>
         </div>
