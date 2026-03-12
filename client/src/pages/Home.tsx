@@ -665,6 +665,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── VÍDEO TESTIMONIOS ── */}
+      <section className="py-14 bg-[#0a0a0a]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-4 py-2 mb-4">
+                <span className="text-[#C9A84C] text-xs font-bold tracking-wider">▶ QUIÉNES SOMOS Y QUÉ HACEMOS</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">
+                Conoce a la <span className="text-[#C9A84C]">Comunidad Nexo</span>
+              </h2>
+              <p className="text-gray-400 text-sm max-w-xl mx-auto">
+                Empresarios reales que ya han dado el paso. Esto es lo que dicen después de vivir la experiencia.
+              </p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-[#C9A84C]/20 shadow-2xl bg-[#0f0f0f]">
+              <video
+                controls
+                preload="metadata"
+                poster=""
+                className="w-full aspect-video object-cover"
+                style={{ maxHeight: '540px' }}
+              >
+                <source
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663302271654/LX9svCg6s9iPetjh8LdbMh/testimonios_optimizado_0bcc8676.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no soporta la reproducción de vídeo.
+              </video>
+              {/* Gold border accent */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(201,168,76,0.15)' }} />
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-sm text-gray-400">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                Evento Nexo Dubái · Feb–Mar 2026
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                +50 empresarios participantes
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#C9A84C]" />
+                Experiencias reales y verificadas
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── MÉTRICAS ── */}
       <section className="py-14 bg-[#0a0a0a]">
         <div className="container">
