@@ -24,7 +24,6 @@ import {
   Clock,
   MapPin,
   Calendar,
-  Heart,
 } from "lucide-react";
 
 // ─── Image URLs ────────────────────────────────────────────────────────────────
@@ -220,9 +219,7 @@ export default function Home() {
 
   const STRIPE_URL = "https://buy.stripe.com/dRmaEYet10nw5FUeuNfIs01";
   const goToStripe = () => window.open(STRIPE_URL, "_blank");
-  const scrollToForm = () => {
-    document.getElementById("solicitar")?.scrollIntoView({ behavior: "smooth" });
-  };
+
 
   const faqData = [
     {
@@ -314,7 +311,7 @@ export default function Home() {
             <span>Madrid</span>
           </div>
           <button
-            onClick={scrollToForm}
+            onClick={goToStripe}
             className="btn-gold rounded-lg px-4 py-2.5 text-xs font-black tracking-wider"
           >
             SOLICITAR PLAZA
@@ -384,7 +381,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-1">
                 <button
-                  onClick={scrollToForm}
+                  onClick={goToStripe}
                    className="btn-gold-outline rounded-xl px-8 py-5 text-base font-black tracking-widest inline-flex items-center justify-center gap-2"
                 >
                   <Zap className="w-5 h-5" />
@@ -450,7 +447,7 @@ export default function Home() {
                 <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
                 <span className="text-[#C9A84C] text-sm font-bold">Evento exclusivo en Madrid · Abril 2026</span>
               </div>
-              <button onClick={scrollToForm} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
+              <button onClick={goToStripe} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
                 RESERVAR AHORA
               </button>
             </div>
@@ -564,10 +561,10 @@ export default function Home() {
             <div className="inline-flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-full px-6 py-3 mb-5">
               <span className="text-gray-500 text-sm line-through">297€</span>
               <span className="text-[#C9A84C] text-2xl font-black tracking-tight">197€</span>
-              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
+                <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1 rounded-full tracking-wider">PRECIO ONLINE</span>
             </div>
             <div className="block">
-              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-4 h-4" />
                 SOLICITAR PLAZA AHORA
               </button>
@@ -660,7 +657,7 @@ export default function Home() {
               {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-[#C9A84C] fill-[#C9A84C]" />)}
               <span className="text-gray-400 text-sm ml-1">4.9/5 (basado en +50 experiencias reales)</span>
             </div>
-            <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
+            <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-8 py-4 text-sm font-black tracking-widest inline-flex items-center gap-2">
                <Zap className="w-4 h-4" />
                QUIERO MI PLAZA
             </button>
@@ -728,9 +725,9 @@ export default function Home() {
               <div className="flex items-center justify-center gap-3 mb-4">
                 <span className="text-gray-500 text-base line-through">297€</span>
                 <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
-                <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
+                <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO ONLINE</span>
               </div>
-              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 ASEGURA TU PLAZA
               </button>
@@ -803,11 +800,11 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+            <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 SOLICITAR MI PLAZA AHORA
               </button>
-            <p className="text-gray-500 text-xs mt-3">Completa el formulario y te contactaremos en máximo 48 horas</p>
+            <p className="text-gray-500 text-xs mt-3">Pago 100% seguro · Confirmación inmediata por email</p>
           </div>
         </div>
       </section>
@@ -864,10 +861,10 @@ export default function Home() {
             <div className="flex items-center justify-center gap-3 mb-5">
               <span className="text-gray-500 text-base line-through">297€</span>
               <span className="text-[#C9A84C] text-3xl font-black tracking-tight">197€</span>
-              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO LANZAMIENTO</span>
+              <span className="bg-[#C9A84C] text-[#0a0a0a] text-xs font-black px-3 py-1.5 rounded-full tracking-wider">PRECIO ONLINE</span>
             </div>
             <div className="block">
-              <button onClick={scrollToForm} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
+              <button onClick={goToStripe} className="btn-gold-outline rounded-xl px-10 py-5 text-base font-black tracking-widest inline-flex items-center gap-2">
                 <Zap className="w-5 h-5" />
                 QUIERO MI PLAZA
               </button>
@@ -887,8 +884,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm">Descubre si este evento se adapta a tu perfil</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-            {/* Para ti */}
+          <div className="max-w-2xl mx-auto">
             <div className="card-dark p-6">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-8 h-8 rounded-full bg-[#C9A84C]/20 border border-[#C9A84C]/40 flex items-center justify-center">
@@ -898,12 +894,12 @@ export default function Home() {
               </div>
               <ul className="space-y-2.5">
                 {[
-                  "Eres empresario, emprendedor o profesional con ingresos estables",
-                  "Sientes que estás pagando demasiados impuestos y quieres alternativas legales",
-                  "Quieres invertir mejor, con datos reales, y evitar errores caros",
-                  "Estás abierto a crear empresa o vehículo de inversión fuera de tu país",
-                  "Tienes mentalidad de acción: quieres ver, entender y decidir",
-                  "Buscas una red de contactos de alto nivel que multiplique tus oportunidades",
+                  "Eres empresario o emprendedor que paga muchos impuestos y quieres reducirlos legalmente",
+                  "Quieres invertir mejor tu dinero, con datos reales y rentabilidades verificadas",
+                  "Estás abierto a crear estructuras empresariales internacionales para proteger tu patrimonio",
+                  "Tienes mentalidad de acción: quieres ver, entender y decidir con información de primera mano",
+                  "Buscas una red de contactos de alto nivel que multiplique tus oportunidades de negocio",
+                  "Quieres conocer de cerca el ecosistema empresarial y fiscal más avanzado del mundo",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-gray-300 text-sm">
                     <Check className="w-4 h-4 text-[#C9A84C] shrink-0 mt-0.5" />
@@ -911,40 +907,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Tono inclusivo / empático */}
-            <div className="card-dark p-6">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-8 rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/30 flex items-center justify-center">
-                  <Heart className="w-4 h-4 text-[#C9A84C]" />
-                </div>
-                <h3 className="text-lg font-black text-white tracking-tight">Si Aún Tienes Dudas...</h3>
-              </div>
-              <p className="text-gray-300 text-sm leading-relaxed mb-5">
-                Entendemos que dar el paso hacia la optimización fiscal internacional puede generar preguntas. Si no estás seguro de si este evento es para ti, <span className="text-[#C9A84C] font-semibold">te queremos igual</span> y queremos ayudarte a decidir con información real.
-              </p>
-              <ul className="space-y-2.5 mb-5">
-                {[
-                  "Escríbenos y te explicamos sin compromiso si encaja con tu situación",
-                  "Hablamos contigo antes de que tomes ninguna decisión",
-                  "Si no es el momento adecuado, te lo diremos con honestidad",
-                  "Nuestro objetivo es que salgas con valor real, no solo con información",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-gray-300 text-sm">
-                    <div className="w-4 h-4 rounded-full bg-[#C9A84C]/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="mailto:info@nexomadrid.com"
-                className="inline-flex items-center gap-2 text-[#C9A84C] font-bold text-sm hover:text-[#D4AF37] transition-colors"
-              >
-                Escríbenos directamente →
-              </a>
             </div>
           </div>
         </div>
@@ -1001,14 +963,14 @@ export default function Home() {
               <div className="text-center">
                 <div className="text-gray-500 text-sm font-bold tracking-wider line-through">297€</div>
                 <div className="text-[#C9A84C] text-5xl font-black tracking-tight leading-none">197€</div>
-                <div className="text-[#C9A84C] text-xs font-black tracking-widest mt-1">PRECIO LANZAMIENTO</div>
+                <div className="text-[#C9A84C] text-xs font-black tracking-widest mt-1">PRECIO ONLINE</div>
               </div>
               <div className="hidden sm:block h-14 w-px bg-[#C9A84C]/20" />
               <div>
-                <div className="text-white font-black text-lg">Precio de lanzamiento</div>
-                <div className="text-gray-400 text-sm">Ahorra 100€ · Precio exclusivo de lanzamiento</div>
+                <div className="text-white font-black text-lg">Precio online</div>
+                <div className="text-gray-400 text-sm">Precio general en sala: 297€</div>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {["✓ 2 días intensivos", "✓ +200 empresarios", "✓ Consultoría incluida"].map((f, i) => (
+                  {["\u2713 2 días intensivos", "\u2713 +200 empresarios", "\u2713 Acceso completo"].map((f, i) => (
                     <span key={i} className="text-[#C9A84C] text-xs font-semibold">{f}</span>
                   ))}
                 </div>
@@ -1019,14 +981,14 @@ export default function Home() {
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-xl font-black text-white tracking-tight">Solicitar Plaza Ahora</h3>
                 <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-full px-3 py-1 text-[#C9A84C] text-xs font-bold">
-                  Oferta de lanzamiento
+                  197€ · Precio online
                 </div>
               </div>
 
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  window.open(STRIPE_URL, "_blank");
+                  goToStripe();
                 }}
                 className="space-y-4"
               >
@@ -1093,7 +1055,7 @@ export default function Home() {
               <p>Oferta de lanzamiento · Evento exclusivo en Madrid · Hotel 5★</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
-            <button onClick={scrollToForm} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
+            <button onClick={goToStripe} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
               SOLICITAR PLAZA
             </button>
           </div>
@@ -1115,7 +1077,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            onClick={scrollToForm}
+            onClick={goToStripe}
             className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider shrink-0 flex items-center gap-1.5"
           >
             <Zap className="w-3.5 h-3.5" />
