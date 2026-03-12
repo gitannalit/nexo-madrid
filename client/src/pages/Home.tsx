@@ -368,14 +368,14 @@ export default function Home() {
               {/* Price badge */}
               <div className="flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-5 py-4 w-fit">
                 <div className="text-center">
-                  <div className="text-gray-500 text-xs font-bold tracking-wider line-through">150€</div>
-                  <div className="text-[#C9A84C] text-3xl font-black tracking-tight leading-none">97€</div>
-                  <div className="text-[#C9A84C] text-[10px] font-black tracking-widest mt-0.5">OFERTA EXCLUSIVA</div>
+                  <div className="text-gray-500 text-xs font-bold tracking-wider line-through">297€</div>
+                  <div className="text-[#C9A84C] text-3xl font-black tracking-tight leading-none">197€</div>
+                  <div className="text-[#C9A84C] text-[10px] font-black tracking-widest mt-0.5">PRECIO ONLINE</div>
                 </div>
                 <div className="h-10 w-px bg-[#C9A84C]/20" />
                 <div className="text-sm">
-                  <div className="text-white font-bold">Precio de lanzamiento</div>
-                  <div className="text-gray-400 text-xs">Ahorra 53€ · Oferta de lanzamiento</div>
+                  <div className="text-white font-bold">Precio online</div>
+                  <div className="text-gray-400 text-xs">Precio general en sala: 297€</div>
                 </div>
               </div>
 
@@ -679,8 +679,8 @@ export default function Home() {
                 <div className="space-y-2">
                   {[
                     "Ahorro fiscal inmediato de hasta 40-50%",
-                    "Acceso a deals con ROI del 8-12% anual",
-                    "Red de inversores elite valorada en €15K/año",
+                    "Acceso a oportunidades inmobiliarias con ROI del 8-20% anual",
+                    "Red de contactos de alto nivel con empresarios e inversores activos",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2 text-gray-300 text-sm">
                       <Check className="w-4 h-4 text-[#C9A84C] shrink-0" />
@@ -732,7 +732,7 @@ export default function Home() {
                 ASEGURA TU PLAZA
               </button>
               <div className="flex items-center justify-center gap-4 mt-3 text-xs text-gray-400">
-                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Oferta de lanzamiento</span>
+                <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Precio online</span>
                 <span className="flex items-center gap-1"><Check className="w-3.5 h-3.5 text-[#C9A84C]" /> Evento verificado</span>
               </div>
             </div>
@@ -869,7 +869,7 @@ export default function Home() {
                 QUIERO MI PLAZA
               </button>
             </div>
-            <p className="text-gray-500 text-xs mt-3">Oferta de lanzamiento · Evento exclusivo en Madrid</p>
+            <p className="text-gray-500 text-xs mt-3">Precio online · Evento exclusivo en Madrid</p>
           </div>
         </div>
       </section>
@@ -1052,7 +1052,7 @@ export default function Home() {
               </div>
             </div>
               <div className="text-center text-gray-500 text-xs">
-              <p>Oferta de lanzamiento · Evento exclusivo en Madrid · Hotel 5★</p>
+              <p>Precio online · Evento exclusivo en Madrid</p>
               <p className="mt-1">© 2026 Nexo Dubái - Madrid · Todos los derechos reservados</p>
             </div>
             <button onClick={goToStripe} className="btn-gold rounded-lg px-6 py-3 text-sm font-black tracking-wider">
