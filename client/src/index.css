@@ -709,4 +709,175 @@
   .animate-count-reveal {
     animation: countReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     ANIMACIONES FINANCIERAS — NEXO MADRID
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Finance Rain — símbolos cayendo estilo matrix financiero */
+  @keyframes financeRainFall {
+    0% {
+      transform: translateY(-120px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(110vh);
+      opacity: 0;
+    }
+  }
+
+  .finance-rain-col {
+    position: absolute;
+    top: 0;
+    font-size: 11px;
+    font-weight: 900;
+    color: #C9A84C;
+    letter-spacing: 0.05em;
+    animation: financeRainFall linear infinite;
+    will-change: transform;
+    opacity: 0;
+    white-space: nowrap;
+  }
+
+  /* Candlestick appear animation */
+  @keyframes candlestickGrow {
+    from {
+      transform: scaleY(0);
+      transform-origin: bottom;
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      transform-origin: bottom;
+      opacity: 1;
+    }
+  }
+
+  .candlestick-appear {
+    animation: candlestickGrow 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform-origin: bottom;
+  }
+
+  /* Finance ticker track — desplazamiento horizontal */
+  @keyframes financeTickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .finance-ticker-track {
+    display: flex;
+    width: max-content;
+    animation: financeTickerScroll 28s linear infinite;
+    will-change: transform;
+  }
+
+  .finance-ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Pulsing gold dot — usado en el "live" indicator */
+  @keyframes livePulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.7);
+      background: #C9A84C;
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(201, 168, 76, 0);
+      background: #E5C84A;
+    }
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: livePulse 1.5s ease-in-out infinite;
+  }
+
+  /* Chart line draw-on animation */
+  @keyframes chartLineDraw {
+    from { stroke-dashoffset: 1000; }
+    to   { stroke-dashoffset: 0; }
+  }
+
+  .chart-line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: chartLineDraw 2.5s ease-out forwards;
+  }
+
+  /* Gold number counter flip */
+  @keyframes numberFlip {
+    0%   { transform: rotateX(90deg) translateY(-10px); opacity: 0; }
+    60%  { transform: rotateX(-8deg) translateY(2px); opacity: 1; }
+    100% { transform: rotateX(0deg) translateY(0); opacity: 1; }
+  }
+
+  .number-flip {
+    animation: numberFlip 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    display: inline-block;
+    transform-origin: top center;
+  }
+
+  /* Arrow up bounce — para métricas positivas */
+  @keyframes arrowUpBounce {
+    0%, 100% { transform: translateY(0); }
+    40%       { transform: translateY(-4px); }
+    70%       { transform: translateY(-2px); }
+  }
+
+  .animate-arrow-up {
+    animation: arrowUpBounce 1.8s ease-in-out infinite;
+  }
+
+  /* Glow scan line — efecto scan de pantalla financiera */
+  @keyframes scanLine {
+    0%   { top: 0%;    opacity: 0; }
+    5%   { opacity: 0.4; }
+    95%  { opacity: 0.2; }
+    100% { top: 100%;  opacity: 0; }
+  }
+
+  .scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent);
+    animation: scanLine 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Stacked bar chart grow */
+  @keyframes barGrow {
+    from { height: 0; }
+    to   { height: var(--bar-h); }
+  }
+
+  /* Price tag pop */
+  @keyframes pricePop {
+    0%   { transform: scale(0.7) rotate(-3deg); opacity: 0; }
+    70%  { transform: scale(1.05) rotate(1deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .animate-price-pop {
+    animation: pricePop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  /* Mobile-optimised: reduce rain intensity on small screens */
+  @media (max-width: 640px) {
+    .finance-rain-col:nth-child(n+10) {
+      display: none;
+    }
+    .finance-ticker-track {
+      animation-duration: 20s;
+    }
+  }
 }

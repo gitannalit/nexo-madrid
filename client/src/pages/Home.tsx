@@ -118,6 +118,126 @@ function HeroCarousel() {
   );
 }
 
+// ─── Finance Rain (matrix-style falling finance symbols) ──────────────────────
+function FinanceRain() {
+  const columns = 18;
+  const items = ["€", "$", "↑", "%", "₿", "£", "¥", "↗", "△", "◆", "7%", "50%", "ROI", "10X", "∞", "↑↑", "★", "✦"];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      {Array.from({ length: columns }).map((_, col) => {
+        const symbol = items[col % items.length];
+        const delay = (col * 0.37) % 4;
+        const duration = 6 + (col % 5);
+        const left = (col / columns) * 100;
+        return (
+          <div
+            key={col}
+            className="finance-rain-col"
+            style={{
+              left: `${left}%`,
+              animationDelay: `${delay}s`,
+              animationDuration: `${duration}s`,
+            }}
+          >
+            {symbol}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Candlestick Chart BG ──────────────────────────────────────────────────────
+function CandlestickBg() {
+  const candles = [
+    { h: 60, body: 35, bodyTop: 15, bull: true },
+    { h: 80, body: 45, bodyTop: 20, bull: false },
+    { h: 50, body: 28, bodyTop: 12, bull: true },
+    { h: 90, body: 52, bodyTop: 22, bull: true },
+    { h: 55, body: 30, bodyTop: 18, bull: false },
+    { h: 75, body: 44, bodyTop: 16, bull: true },
+    { h: 65, body: 38, bodyTop: 14, bull: false },
+    { h: 95, body: 58, bodyTop: 24, bull: true },
+    { h: 48, body: 26, bodyTop: 12, bull: true },
+    { h: 85, body: 50, bodyTop: 20, bull: false },
+    { h: 72, body: 42, bodyTop: 18, bull: true },
+    { h: 58, body: 33, bodyTop: 16, bull: false },
+  ];
+
+  return (
+    <div className="absolute bottom-0 left-0 right-0 h-48 overflow-hidden pointer-events-none opacity-[0.06]" aria-hidden="true">
+      <div className="flex items-end justify-around h-full px-4">
+        {candles.map((c, i) => (
+          <div
+            key={i}
+            className="flex flex-col items-center candlestick-appear"
+            style={{ animationDelay: `${i * 0.15}s`, height: `${c.h}%` }}
+          >
+            {/* Top wick */}
+            <div
+              className="w-px"
+              style={{
+                height: `${c.bodyTop}%`,
+                background: c.bull ? "#C9A84C" : "#8B6914",
+              }}
+            />
+            {/* Body */}
+            <div
+              className="w-3 md:w-4 rounded-sm"
+              style={{
+                height: `${c.body}%`,
+                background: c.bull
+                  ? "linear-gradient(180deg, #C9A84C 0%, #D4AF37 100%)"
+                  : "linear-gradient(180deg, #8B6914 0%, #6B4F0F 100%)",
+                boxShadow: c.bull ? "0 0 6px rgba(201,168,76,0.4)" : "none",
+              }}
+            />
+            {/* Bottom wick */}
+            <div
+              className="w-px flex-1"
+              style={{ background: c.bull ? "#C9A84C" : "#8B6914" }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Live Finance Ticker Strip ─────────────────────────────────────────────────
+function FinanceTicker() {
+  const assets = [
+    { name: "IBEX 35", val: "11.847", change: "+1.2%", up: true },
+    { name: "S&P 500", val: "5.634", change: "+0.8%", up: true },
+    { name: "BTC/EUR", val: "€82.450", change: "+3.4%", up: true },
+    { name: "EUR/USD", val: "1.0821", change: "-0.1%", up: false },
+    { name: "ORO", val: "€2.318", change: "+0.5%", up: true },
+    { name: "DUBaÍ RE", val: "ROI 12%", change: "+18% YTD", up: true },
+    { name: "NASDAQ", val: "17.932", change: "+1.4%", up: true },
+    { name: "IMPUESTOS", val: "-50%", change: "Nexo Method", up: true },
+  ];
+  const doubled = [...assets, ...assets];
+
+  return (
+    <div className="bg-[#0d0d0d] border-b border-[#C9A84C]/10 py-1.5 overflow-hidden">
+      <div className="finance-ticker-track flex gap-0">
+        {doubled.map((a, i) => (
+          <div key={i} className="flex items-center gap-1.5 px-5 shrink-0 border-r border-[#C9A84C]/10">
+            <span className="text-gray-500 text-[10px] font-bold tracking-wider">{a.name}</span>
+            <span className="text-white text-[11px] font-black">{a.val}</span>
+            <span
+              className={`text-[10px] font-bold flex items-center gap-0.5 ${a.up ? "text-[#C9A84C]" : "text-red-400"}`}
+            >
+              {a.up ? "▲" : "▼"} {a.change}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── FAQ Item ──────────────────────────────────────────────────────────────────
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -288,6 +408,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
 
+      {/* ── Finance Ticker Strip ── */}
+      <FinanceTicker />
+
       {/* ── Ticker ── */}
       <Ticker />
 
@@ -325,6 +448,10 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-5"
           style={{ background: 'radial-gradient(ellipse at top right, #C9A84C 0%, transparent 70%)' }} />
 
+        {/* Finance ambient animations */}
+        <FinanceRain />
+        <CandlestickBg />
+
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Left: Text */}
@@ -355,7 +482,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-2.5">
                 {[
                   { icon: <Clock className="w-4 h-4" />, label: "2 días intensivos" },
-                  { icon: <Users className="w-4 h-4" />, label: "+200 empresarios" },
+                  { icon: <TrendingUp className="w-4 h-4 animate-arrow-up" />, label: "+200 empresarios" },
                   { icon: <MapPin className="w-4 h-4" />, label: "Madrid, Abril 2026" },
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center gap-2 bg-[#111111] border border-[#C9A84C]/20 rounded-full px-4 py-2 text-sm">
@@ -366,10 +493,11 @@ export default function Home() {
               </div>
 
               {/* Price badge */}
-              <div className="flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-5 py-4 w-fit animate-glow-pulse animate-float">
+              <div className="relative flex items-center gap-3 bg-[#111111] border border-[#C9A84C]/30 rounded-2xl px-5 py-4 w-fit animate-glow-pulse animate-float overflow-hidden">
+                <div className="scan-line" />
                 <div className="text-center">
                   <div className="text-gray-500 text-xs font-bold tracking-wider line-through">297€</div>
-                  <div className="text-[#C9A84C] text-3xl font-black tracking-tight leading-none">197€</div>
+                  <div className="text-[#C9A84C] text-3xl font-black tracking-tight leading-none animate-price-pop">197€</div>
                   <div className="text-[#C9A84C] text-[10px] font-black tracking-widest mt-0.5">PRECIO ONLINE</div>
                 </div>
                 <div className="h-10 w-px bg-[#C9A84C]/20" />
@@ -444,7 +572,7 @@ export default function Home() {
             <CountdownTimer />
             <div className="flex flex-col items-center md:items-end gap-2">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#C9A84C] animate-pulse" />
+                <div className="live-dot" />
                 <span className="text-[#C9A84C] text-sm font-bold">Evento exclusivo en Madrid · Abril 2026</span>
               </div>
               <button onClick={goToStripe} className="btn-gold rounded-lg px-5 py-2.5 text-xs font-black tracking-wider">
