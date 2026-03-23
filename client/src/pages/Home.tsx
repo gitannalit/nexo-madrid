@@ -336,7 +336,7 @@ export default function Home() {
 
               <div className="flex items-center gap-2 text-[#C9A84C] text-sm font-semibold">
                 <Calendar className="w-4 h-4" />
-                <span>26 Y 27 DE ABRIL DE 2026 · MADRID</span>
+                <span>25 Y 26 DE ABRIL DE 2026 · MADRID</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl xl:text-6xl font-black leading-[1.05] tracking-tight">
